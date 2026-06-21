@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Track Details | MUBA HACK 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+<body class="antialiased min-h-screen flex flex-col relative bg-surface-container-lowest text-text-primary">
+    <div class="noise-overlay"></div>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-[-1]"></div>
+    
+    <main class="flex-grow w-full max-w-4xl mx-auto pt-32 pb-section-gap px-container-padding z-10 flex flex-col gap-8">
+        <div>
+            <a href="code.html" class="inline-flex items-center gap-2 font-label-mono text-xs text-danger hover:underline transition-all bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                Back to Tracks
+            </a>
+        </div>
+        
+        <div class="glass-card rounded-2xl p-8 md:p-12 border border-danger/20">
+            <h1 class="font-headline-lg text-4xl font-bold mb-6 text-gradient">DeFI: Decentralised Finance</h1>
+            
+            <div class="space-y-6 font-body-md text-text-secondary leading-relaxed">
+                <p>Welcome to the DeFI track. In this track, participants are challenged to design decentralised financial instruments, AMMs, lending protocols, and more.</p>
+                
+                <h3 class="font-headline-md text-xl text-white mt-8 mb-4">Detailed Requirements</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Must be deployed on a testnet with verifiable smart contracts.</li>
+                    <li>Innovative liquidity management mechanisms are highly encouraged.</li>
+                    <li>Solutions should handle high volatility scenarios gracefully.</li>
+                </ul>
+
+                <h3 class="font-headline-md text-xl text-white mt-8 mb-4">Judging Criteria Deep Dive</h3>
+                <p>Projects will be heavily evaluated on economic sustainability and code security. Make sure to provide a robust test suite for your smart contracts.</p>
+                
+                <div class="mt-12 p-6 bg-danger/10 border border-danger/30 rounded-xl">
+                    <h4 class="font-bold text-white mb-2">Ready to submit?</h4>
+                    <p class="text-sm">Ensure your GitHub repository is public and all presentation materials are uploaded to the hackathon portal before the deadline.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Timeline - Neural Hack 2026</title>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Orbitron:wght@800;900&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+
+<body class="text-text-primary antialiased min-h-screen flex flex-col relative cyber-grid">
+        <!-- TopNavBar -->
+        <nav id="navbar"
+                class="fixed top-0 w-full z-50 bg-bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(167,139,250,0.1)] transition-all duration-300">
+                <div class="flex justify-between items-center px-container-padding py-4 w-full mx-auto">
+                        <a class="font-headline-md text-headline-md font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                                href="../official_landing_page/code.html">MUBA HACK 2026</a>
+                        <div class="hidden md:flex items-center gap-4">
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../official_landing_page/code.html">Home</a>
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../challenge_tracks/code.html">Tracks</a>
+                                <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300 hover:scale-95 rounded-md"
+                                        href="../event_timeline/code.html">Timeline</a>
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../sponsors/code.html">Sponsors</a>
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../getting_here/code.html">Venue</a>
+                                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                                        href="../frequently_asked_questions/code.html">FAQ</a>
+                        </div>
+                        <button
+                                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
+                                Register Now
+                        </button>
+                        <!-- Mobile Menu Icon (simplified) -->
+                        <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
+                                <span class="material-symbols-outlined">menu</span>
+                        </button>
+                </div>
+                <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu"
+                        class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex flex-col items-center py-6 gap-4 shadow-xl">
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../official_landing_page/code.html">Home</a>
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../challenge_tracks/code.html">Tracks</a>
+                        <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+                                href="../event_timeline/code.html">Timeline</a>
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../sponsors/code.html">Sponsors</a>
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../getting_here/code.html">Venue</a>
+                        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                                href="../frequently_asked_questions/code.html">FAQ</a>
+                        <button
+                                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register
+                                Now</button>
+                </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow w-full overflow-x-hidden pt-32 pb-section-gap px-container-padding relative z-10">
+                <div class="max-w-4xl mx-auto">
+                        <!-- Header -->
+                        <header class="py-12 sm:py-16 md:py-20 mb-stack-lg text-center md:text-left scroll-animate opacity-0"
+                                style="animation-duration: 2.5s;">
+
+                                <h1
+                                        class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-text-secondary">
+                                        Event Sequence
+                                </h1>
+
+                        </header>
+                        <!-- Timeline Container -->
+                        <div class="relative pl-8 md:pl-16 py-8">
+                                <!-- Glowing Vertical Line -->
+                                <div
+                                        class="absolute left-[15px] md:left-[31px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-transparent timeline-line-glow">
+                                </div>
+                                <!-- Timeline Item 1 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node (Pulsing) -->
+                                        <div
+                                                class="absolute -left-[41px] md:-left-[57px] top-1 w-6 h-6 z-10 flex items-center justify-center">
+                                                <div
+                                                        class="absolute inset-0 rounded-full border-2 border-secondary animate-pulse-ring">
+                                                </div>
+                                                <div
+                                                        class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#4cd7f6]">
+                                                </div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container/80 backdrop-blur-2xl border border-secondary/30 rounded-xl p-6 md:p-8 shadow-[0_4px_30px_rgba(76,215,246,0.05)] relative overflow-hidden group">
+                                                <!-- Subtle background glow in card -->
+                                                <div
+                                                        class="absolute -right-20 -top-20 w-40 h-40 bg-secondary/10 rounded-full blur-[50px] pointer-events-none">
+                                                </div>
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
+                                                        <div class="flex items-center gap-3">
+                                                                <h3
+                                                                        class="font-headline-md text-headline-md text-text-primary group-hover:text-secondary transition-colors">
+                                                                        Hackathon Reveal</h3>
+                                                                <span
+                                                                        class="px-2 py-0.5 rounded text-[10px] font-label-caps tracking-widest bg-secondary/20 text-secondary border border-secondary/30">UPCOMING</span>
+                                                        </div>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-secondary flex items-center gap-2 bg-secondary/10 px-3 py-1 rounded-md border border-secondary/20">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">campaign</span>
+                                                                12TH JUNE
+                                                        </div>
+                                                </div>
+                                                <p
+                                                        class="font-body-md text-body-md text-on-surface-variant relative z-10">
+                                                        The initial announcement and reveal of the hackathon.
+                                                </p>
+                                        </div>
+                                </div>
+                                <!-- Timeline Item 2 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Registration Starts</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">app_registration</span>
+                                                                26TH JUNE
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        Registration officially opens. Teams of 2 to 4 members can begin
+                                                        registering via the Devfolio platform.
+                                                </p>
+                                        </div>
+                                </div>
+                                <!-- Timeline Item 3 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Workshop 1</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">school</span>
+                                                                31ST JUL
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        Online preparation session for Workshop 1
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Workshop 2</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">school</span>
+                                                                7TH AUG
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        Online preparation session for Workshop 2
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Pitching 101</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">school</span>
+                                                                15TH AUG
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        Online preparation session for Pitching 101
+                                                </p>
+                                        </div>
+                                </div>
+
+
+                                <!-- Timeline Item 4 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Opening Ceremony &amp; Track Reveal</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">celebration</span>
+                                                                26TH AUG
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        The online opening ceremony where the specific problem statement
+                                                        tracks are revealed to participants. The online hackathon
+                                                        development phase initiates. Mentorship is available throughout
+                                                        the hacking period, with specific timeslots for teams to choose.
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- Timeline Item 6 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Registration Closes</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">event_busy</span>
+                                                                4TH SEPT
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        The final deadline to register a team for the event.
+                                                </p>
+                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">11:59
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Registration Closes</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <!-- Timeline Item 8 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Submission Deadline</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">lock_clock</span>
+                                                                12TH SEPT
+                                                        </div>
+                                                </div>
+                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                        The deadline for all project deliverables, including the
+                                                        pitch deck, GitHub repository link, and MVP video.
+                                                </p>
+                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">08:00
+                                                                                AM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Submission Deadline</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Timeline Item 9 -->
+                                <div class="relative mb-section-gap scroll-animate opacity-0"
+                                        style="animation-duration: 2.5s;">
+                                        <!-- Node -->
+                                        <div
+                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
+                                        </div>
+                                        <!-- Content -->
+                                        <div
+                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                                <div
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
+                                                                Demo Day &amp; Grand Finale</h3>
+                                                        <div
+                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[16px]">trophy</span>
+                                                                12TH SEPT
+                                                        </div>
+                                                </div>
+                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">09:00
+                                                                                AM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Team Registration &amp; Breakfast</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">10:00
+                                                                                AM - 01:00 PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Last Polishing Session</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">01:00
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Submission for Pitching</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">01:00
+                                                                                PM - 02:00 PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Lunch Time</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">02:00
+                                                                                PM - 04:00 PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                First, Second &amp; Third Track Pitching
+                                                                        </p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">04:00
+                                                                                PM - 05:00 PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Winner Finalize and Lunch</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">05:00
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Prize-Giving &amp; Closing Ceremony</p>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </main>
+        <!-- Footer -->
+        <footer class="w-full relative bottom-0 bg-surface-container-lowest border-t border-white/10 no shadows">
+                <div
+                        class="flex flex-col md:flex-row justify-between items-center p-stack-lg gap-stack-md max-w-7xl mx-auto">
+                        <div class="font-label-caps text-label-caps text-on-surface">
+                                © MUBA HACK 2026 · MALAYSIA UNIVERSITY BLOCKCHAIN ASSOCIATION
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-6">
+                                <a href="https://www.instagram.com/mubahack/" target="_blank" rel="noopener noreferrer"
+                                        class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                                        <span class="sr-only">Instagram</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                        </svg>
+                                </a>
+                                <a href="https://x.com/muba_hack" target="_blank" rel="noopener noreferrer"
+                                        class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                                        <span class="sr-only">X</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                        </svg>
+                                </a>
+                                <a href="https://linktr.ee/malaysiauniversityblockchainas" target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                                        <span class="sr-only">Linktree</span>
+                                        <svg viewBox="0 0 24 24" width="24" height="24"
+                                                xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                                <path
+                                                        d="M13.682 6.002l4.05-4.248 2.235 2.13-6.4 6.716h10.433v3.197h-10.433l6.4 6.716-2.235 2.13-4.05-4.248-2.636-2.763-2.636 2.763-4.05 4.248-2.235-2.13 6.4-6.716h-10.433v-3.197h10.433l-6.4-6.716 2.235-2.13 4.05 4.248 2.636 2.763 2.636-2.763z" />
+                                        </svg>
+                                </a>
+                        </div>
+                </div>
+        </footer>
+        <script src="../assets/global.js"></script>
+</body>
+
+</html>

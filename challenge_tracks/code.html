@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Challenge Tracks | MUBA HACK 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Orbitron:wght@500;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+
+<body class="antialiased min-h-screen flex flex-col relative">
+    <div class="noise-overlay"></div>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-[-1]"></div>
+    <!-- TopNavBar -->
+    <!-- TopNavBar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(167,139,250,0.1)] transition-all duration-300">
+        <div class="flex justify-between items-center px-container-padding py-4 w-full mx-auto">
+            <a class="font-headline-md text-headline-md font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                href="../official_landing_page/code.html">MUBA HACK 2026</a>
+            <div class="hidden md:flex items-center gap-4">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../official_landing_page/code.html">Home</a>
+                <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300 hover:scale-95 rounded-md"
+                    href="../challenge_tracks/code.html">Tracks</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../event_timeline/code.html">Timeline</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../sponsors/code.html">Sponsors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../getting_here/code.html">Venue</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../frequently_asked_questions/code.html">FAQ</a>
+            </div>
+            <button
+                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
+                Register Now
+            </button>
+            <!-- Mobile Menu Icon (simplified) -->
+            <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex flex-col items-center py-6 gap-4 shadow-xl">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../official_landing_page/code.html">Home</a>
+            <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+                href="../challenge_tracks/code.html">Tracks</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../event_timeline/code.html">Timeline</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../sponsors/code.html">Sponsors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../judges_n_mentors/code.html">Judges & Mentors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../getting_here/code.html">Venue</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../frequently_asked_questions/code.html">FAQ</a>
+            <button
+                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register
+                Now</button>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="flex-grow w-full overflow-x-hidden pt-32 pb-section-gap px-container-padding z-10">
+        <div class="max-w-7xl mx-auto flex flex-col gap-section-gap">
+            <!-- Header Section -->
+            <header class="py-12 sm:py-16 md:py-20 text-center flex flex-col items-center gap-stack-md">
+                <h1
+                    class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text-primary mb-stack-sm text-gradient">
+                    CHALLENGE TRACKS
+                </h1>
+            </header>
+            <!-- Tracks Grid -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Track 1: Stablecoins -->
+                <div class="glass-card rounded-xl p-8 flex flex-col gap-6 relative group overflow-hidden scroll-animate opacity-0"
+                    style="animation-duration: 2.5s;">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center border border-primary/20 shadow-[0_0_15px_rgba(210,187,255,0.2)] group-hover:shadow-[0_0_25px_rgba(210,187,255,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-3xl text-primary"
+                                style="font-variation-settings: 'FILL' 1;">payments</span>
+                        </div>
+                        <span
+                            class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">TRK-01</span>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-text-primary mb-4">Stablecoins</h3>
+                        <p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-6">
+                            Build stable and reliable cryptocurrency solutions pegged to real-world assets or
+                            algorithmic models.
+                        </p>
+                        <div class="py-6 mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-4 h-4 text-primary" aria-hidden="true">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                <span class="font-label-mono text-xs text-primary">Total Prize Pool: 1,500 USDT</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-primary/30 bg-primary/10 text-white">1st
+                                    Place: <span class="text-primary">750 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-primary/30 bg-primary/10 text-white">2nd
+                                    Place: <span class="text-primary">500 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-primary/30 bg-primary/10 text-white">3rd
+                                    Place: <span class="text-primary">250 USDT</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/10 mb-6"></div>
+                        <p class="font-label-mono text-sm text-text-secondary mb-2"><span
+                                class="text-white">Organiser:</span> MUBA</p>
+                        <p class="font-label-mono text-sm text-text-secondary mb-6"><span
+                                class="text-white">Theme:</span> Next-Gen Stability</p>
+                        <div class="py-6 mb-6">
+                            <p class="font-label-mono text-xs text-text-secondary mb-3">Project Types:</p>
+                            <ul class="font-body-md text-sm text-text-secondary/80 space-y-2">
+                                <li class="flex gap-2 items-start"><span class="text-primary">•</span>Fiat-backed tokens
+                                </li>
+                                <li class="flex gap-2 items-start"><span class="text-primary">•</span>Algorithmic
+                                    stablecoins</li>
+                                <li class="flex gap-2 items-start"><span class="text-primary">•</span>Cross-chain
+                                    mechanisms</li>
+                            </ul>
+                        </div>
+                        <p class="font-label-mono text-sm text-text-secondary mt-auto"><span
+                                class="text-white">Requirement:</span> Working prototype, smart contract repository,
+                            presentation.</p>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="track-details.html" class="font-label-mono text-xs text-primary hover:underline transition-all">View
+                                full track details →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Track 2: DeFI -->
+                <div class="glass-card rounded-xl p-8 flex flex-col gap-6 relative group overflow-hidden scroll-animate opacity-0"
+                    style="animation-duration: 2.5s;">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-danger to-transparent opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center border border-danger/20 shadow-[0_0_15px_rgba(239,68,68,0.2)] group-hover:shadow-[0_0_25px_rgba(239,68,68,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-3xl text-danger"
+                                style="font-variation-settings: 'FILL' 1;">currency_exchange</span>
+                        </div>
+                        <span
+                            class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">TRK-02</span>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-text-primary mb-4">DeFI</h3>
+                        <p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-6">
+                            Design decentralised financial instruments, AMMs, lending protocols, and more.
+                        </p>
+                        <div class="py-6 mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-4 h-4 text-danger" aria-hidden="true">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                <span class="font-label-mono text-xs text-danger">Total Prize Pool: 1,500 USDT</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-danger/20 bg-danger/10 text-white">1st
+                                    Place: <span class="text-danger">750 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-danger/20 bg-danger/10 text-white">2nd
+                                    Place: <span class="text-danger">500 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-danger/20 bg-danger/10 text-white">3rd
+                                    Place: <span class="text-danger">250 USDT</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/10 mb-6"></div>
+                        <p class="font-label-mono text-sm text-text-secondary mb-2"><span
+                                class="text-white">Organiser:</span> MUBA</p>
+                        <p class="font-label-mono text-sm text-text-secondary mb-6"><span
+                                class="text-white">Theme:</span> Decentralised Finance</p>
+                        <div class="py-6 mb-6">
+                            <p class="font-label-mono text-xs text-text-secondary mb-3">Project Types:</p>
+                            <ul class="font-body-md text-sm text-text-secondary/80 space-y-2">
+                                <li class="flex gap-2 items-start"><span class="text-danger">•</span>Lending & Borrowing
+                                </li>
+                                <li class="flex gap-2 items-start"><span class="text-danger">•</span>Automated Market
+                                    Makers</li>
+                                <li class="flex gap-2 items-start"><span class="text-danger">•</span>Yield Aggregators
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="font-label-mono text-sm text-text-secondary mt-auto"><span
+                                class="text-white">Requirement:</span> Working prototype, smart contract repository,
+                            presentation.</p>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="track-details-defi.html" class="font-label-mono text-xs text-danger hover:underline transition-all">View
+                                full track details →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Track 3: AI -->
+                <div class="glass-card rounded-xl p-8 flex flex-col gap-6 relative group overflow-hidden scroll-animate opacity-0"
+                    style="animation-duration: 2.5s;">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary to-transparent opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center border border-tertiary/20 shadow-[0_0_15px_rgba(255,185,95,0.2)] group-hover:shadow-[0_0_25px_rgba(255,185,95,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-3xl text-tertiary"
+                                style="font-variation-settings: 'FILL' 1;">psychology</span>
+                        </div>
+                        <span
+                            class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">TRK-03</span>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-text-primary mb-4">AI</h3>
+                        <p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-6">
+                            Combine Artificial Intelligence with Blockchain to create smart, decentralized applications.
+                        </p>
+                        <div class="py-6 mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-4 h-4 text-tertiary" aria-hidden="true">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                <span class="font-label-mono text-xs text-tertiary">Total Prize Pool: 1,500 USDT</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-tertiary/20 bg-tertiary/10 text-white">1st
+                                    Place: <span class="text-tertiary">750 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-tertiary/20 bg-tertiary/10 text-white">2nd
+                                    Place: <span class="text-tertiary">500 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-tertiary/20 bg-tertiary/10 text-white">3rd
+                                    Place: <span class="text-tertiary">250 USDT</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/10 mb-6"></div>
+                        <p class="font-label-mono text-sm text-text-secondary mb-2"><span
+                                class="text-white">Organiser:</span> MUBA</p>
+                        <p class="font-label-mono text-sm text-text-secondary mb-6"><span
+                                class="text-white">Theme:</span> Intelligent Web3</p>
+                        <div class="py-6 mb-6">
+                            <p class="font-label-mono text-xs text-text-secondary mb-3">Project Types:</p>
+                            <ul class="font-body-md text-sm text-text-secondary/80 space-y-2">
+                                <li class="flex gap-2 items-start"><span class="text-tertiary">•</span>AI Trading Bots
+                                </li>
+                                <li class="flex gap-2 items-start"><span class="text-tertiary">•</span>Predictive Models
+                                </li>
+                                <li class="flex gap-2 items-start"><span class="text-tertiary">•</span>Generative AI
+                                    NFTs</li>
+                            </ul>
+                        </div>
+                        <p class="font-label-mono text-sm text-text-secondary mt-auto"><span
+                                class="text-white">Requirement:</span> Working prototype, smart contract repository,
+                            presentation.</p>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="track-details-ai.html"
+                                class="font-label-mono text-xs text-tertiary hover:underline transition-all">View full
+                                track details →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Track 4: Infrastructure -->
+                <div class="glass-card rounded-xl p-8 flex flex-col gap-6 relative group overflow-hidden scroll-animate opacity-0"
+                    style="animation-duration: 2.5s;">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-transparent opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center border border-green-400/20 shadow-[0_0_15px_rgba(74,222,128,0.2)] group-hover:shadow-[0_0_25px_rgba(74,222,128,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-3xl text-green-400"
+                                style="font-variation-settings: 'FILL' 1;">dns</span>
+                        </div>
+                        <span
+                            class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">TRK-04</span>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-text-primary mb-4">Infrastructure</h3>
+                        <p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-6">
+                            Build tools, protocols, and foundational layers to scale the Web3 ecosystem.
+                        </p>
+                        <div class="py-6 mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-4 h-4 text-green-400" aria-hidden="true">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                <span class="font-label-mono text-xs text-green-400">Total Prize Pool: 1,500 USDT</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-green-400/20 bg-green-400/10 text-white">1st
+                                    Place: <span class="text-green-400">750 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-green-400/20 bg-green-400/10 text-white">2nd
+                                    Place: <span class="text-green-400">500 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-green-400/20 bg-green-400/10 text-white">3rd
+                                    Place: <span class="text-green-400">250 USDT</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/10 mb-6"></div>
+                        <p class="font-label-mono text-sm text-text-secondary mb-2"><span
+                                class="text-white">Organiser:</span> MUBA</p>
+                        <p class="font-label-mono text-sm text-text-secondary mb-6"><span
+                                class="text-white">Theme:</span> Web3 Foundations</p>
+                        <div class="py-6mb-6">
+                            <p class="font-label-mono text-xs text-text-secondary mb-3">Project Types:</p>
+                            <ul class="font-body-md text-sm text-text-secondary/80 space-y-2">
+                                <li class="flex gap-2 items-start"><span class="text-green-400">•</span>Layer 2
+                                    Solutions</li>
+                                <li class="flex gap-2 items-start"><span class="text-green-400">•</span>Developer
+                                    Tooling</li>
+                                <li class="flex gap-2 items-start"><span class="text-green-400">•</span>Data
+                                    Availability</li>
+                            </ul>
+                        </div>
+                        <p class="font-label-mono text-sm text-text-secondary mt-auto"><span
+                                class="text-white">Requirement:</span> Working prototype, smart contract repository,
+                            presentation.</p>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="track-details-infrastructure.html"
+                                class="font-label-mono text-xs text-green-400 hover:underline transition-all">View full
+                                track details →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Track 5: Consumer Apps -->
+                <div class="glass-card rounded-xl p-8 flex flex-col gap-6 relative group overflow-hidden scroll-animate opacity-0"
+                    style="animation-duration: 2.5s;">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary to-transparent opacity-50 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div
+                            class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center border border-secondary/20 shadow-[0_0_15px_rgba(76,215,246,0.2)] group-hover:shadow-[0_0_25px_rgba(76,215,246,0.4)] transition-all">
+                            <span class="material-symbols-outlined text-3xl text-secondary"
+                                style="font-variation-settings: 'FILL' 1;">smartphone</span>
+                        </div>
+                        <span
+                            class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">TRK-05</span>
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="font-headline-md text-headline-md text-text-primary mb-4">Consumer Apps</h3>
+                        <p class="font-body-md text-body-md text-text-secondary leading-relaxed mb-6">
+                            Create engaging decentralized applications tailored for everyday users.
+                        </p>
+                        <div class="py-6 mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="w-4 h-4 text-secondary" aria-hidden="true">
+                                    <path
+                                        d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                                    </path>
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                </svg>
+                                <span class="font-label-mono text-xs text-secondary">Total Prize Pool: 1,500 USDT</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-secondary/30 bg-secondary/10 text-white">1st
+                                    Place: <span class="text-secondary">750 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-secondary/30 bg-secondary/10 text-white">2nd
+                                    Place: <span class="text-secondary">500 USDT</span></span>
+                                <span
+                                    class="font-label-mono text-xs px-3 py-1.5 rounded-md border border-secondary/30 bg-secondary/10 text-white">3rd
+                                    Place: <span class="text-secondary">250 USDT</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full h-px bg-white/10 mb-6"></div>
+                        <p class="font-label-mono text-sm text-text-secondary mb-2"><span
+                                class="text-white">Organiser:</span> MUBA</p>
+                        <p class="font-label-mono text-sm text-text-secondary mb-6"><span
+                                class="text-white">Theme:</span> Mass Adoption</p>
+                        <div class="py-6 mb-6">
+                            <p class="font-label-mono text-xs text-text-secondary mb-3">Project Types:</p>
+                            <ul class="font-body-md text-sm text-text-secondary/80 space-y-2">
+                                <li class="flex gap-2 items-start"><span class="text-secondary">•</span>SocialFi &
+                                    Gaming</li>
+                                <li class="flex gap-2 items-start"><span class="text-secondary">•</span>NFT Marketplaces
+                                </li>
+                                <li class="flex gap-2 items-start"><span class="text-secondary">•</span>Digital Identity
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="font-label-mono text-sm text-text-secondary mt-auto"><span
+                                class="text-white">Requirement:</span> Working prototype, smart contract repository,
+                            presentation.</p>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="track-details-consumer-apps.html"
+                                class="font-label-mono text-xs text-secondary hover:underline transition-all">View full
+                                track details →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Judging Criteria Section -->
+            <section class="bg-black/10 p-8 lg:p-12 flex flex-col gap-8 relative overflow-hidden mt-8">
+                <div
+                    class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-tertiary opacity-80">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <div
+                        class="inline-flex items-center gap-2 border border-white/10 bg-white/5 rounded-full px-4 py-1.5 w-max">
+                        <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(210,187,255,0.8)]"></span>
+                        <span class="font-label-mono text-label-mono text-primary">EVALUATION</span>
+                    </div>
+                    <h2
+                        class="font-headline-lg-mobile md:font-headline-md text-text-primary uppercase mt-2 text-3xl font-bold">
+                        Judging Criteria</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Criterion 1 -->
+                    <div class="flex flex-col gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors scroll-animate opacity-0"
+                        style="animation-duration: 2.5s;">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-headline-md text-xl text-primary font-bold">1. Technical Implementation</h3>
+                            <span
+                                class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">30%</span>
+                        </div>
+                        <ul
+                            class="flex flex-col gap-3 font-body-md text-text-secondary/90 text-sm list-disc pl-4 marker:text-primary">
+                            <li>How well is the project built from a technical standpoint?</li>
+                            <li>Does it function as intended with minimal bugs?</li>
+                            <li>Is it scalable and efficient?</li>
+                            <li>Does it leverage innovative or well-structured solutions?</li>
+                        </ul>
+                        <div class="mt-2 bg-danger/10 border border-danger/20 rounded-lg p-4">
+                            <p class="font-body-md text-sm text-error"><span class="font-bold text-danger">NOTE:</span>
+                                Number of partner integrations will not be taken into account. Our judges will be going
+                                through each GitHub; in the event of suspicious commits or multiple contributors are
+                                present, you may risk disqualification.</p>
+                        </div>
+                    </div>
+
+                    <!-- Criterion 2 -->
+                    <div class="flex flex-col gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-secondary/30 transition-colors scroll-animate opacity-0"
+                        style="animation-duration: 2.5s;">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-headline-md text-xl text-secondary font-bold">2. Practicality & Impact</h3>
+                            <span
+                                class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">30%</span>
+                        </div>
+                        <ul
+                            class="flex flex-col gap-3 font-body-md text-text-secondary/90 text-sm list-disc pl-4 marker:text-secondary mt-2">
+                            <li>Is this something users would realistically adopt?</li>
+                            <li>Does it bring a meaningful improvement over existing solutions?</li>
+                            <li>How well does it address the problem statement?</li>
+                        </ul>
+                    </div>
+
+                    <!-- Criterion 3 -->
+                    <div class="flex flex-col gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-tertiary/30 transition-colors scroll-animate opacity-0"
+                        style="animation-duration: 2.5s;">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-headline-md text-xl text-tertiary font-bold">3. Presentation & Clarity</h3>
+                            <span
+                                class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">20%</span>
+                        </div>
+                        <ul
+                            class="flex flex-col gap-3 font-body-md text-text-secondary/90 text-sm list-disc pl-4 marker:text-tertiary mt-2">
+                            <li>How well did the team communicate their idea and implementation?</li>
+                            <li>Is the demo polished and effective in showcasing the project?</li>
+                        </ul>
+                    </div>
+
+                    <!-- Criterion 4 -->
+                    <div class="flex flex-col gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-green-400/30 transition-colors scroll-animate opacity-0"
+                        style="animation-duration: 2.5s;">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-headline-md text-xl text-green-400 font-bold">4. User Experience (UX) &
+                                Design</h3>
+                            <span
+                                class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">10%</span>
+                        </div>
+                        <ul
+                            class="flex flex-col gap-3 font-body-md text-text-secondary/90 text-sm list-disc pl-4 marker:text-green-400 mt-2">
+                            <li>Is the interface intuitive and easy to navigate?</li>
+                            <li>Does the project solve a real user pain point effectively?</li>
+                            <li>Is the design aesthetically pleasing and accessible?</li>
+                            <li>How seamless is the onboarding process?</li>
+                        </ul>
+                        <div class="mt-2 bg-surface-container border border-white/10 rounded-lg p-4">
+                            <p class="font-body-md text-sm text-text-secondary/80 italic">Basic functions like wallet
+                                connecting, transaction confirmation/failure displays, web & mobile compatibility will
+                                all be taken into account.</p>
+                        </div>
+                    </div>
+
+                    <!-- Criterion 5 -->
+                    <div class="flex flex-col gap-4 p-6 rounded-xl bg-white/5 border border-white/10 hover:border-primary-container/30 transition-colors lg:col-span-2 scroll-animate opacity-0"
+                        style="animation-duration: 2.5s;">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <h3 class="font-headline-md text-xl text-primary-fixed-dim font-bold">5. Originality</h3>
+                            <span
+                                class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full border border-white/5">10%</span>
+                        </div>
+                        <ul
+                            class="flex flex-col gap-3 font-body-md text-text-secondary/90 text-sm list-disc pl-4 marker:text-primary-fixed-dim mt-2">
+                            <li>Is this a project that has never been seen before?</li>
+                            <li>Does it solve current existing problems or is it more of an additional feature towards
+                                existing solutions?</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full relative bottom-0 bg-surface-container-lowest border-t border-white/10 no shadows">
+        <div class="flex flex-col md:flex-row justify-between items-center p-stack-lg gap-stack-md max-w-7xl mx-auto">
+            <div class="font-label-caps text-label-caps text-on-surface">
+                © MUBA HACK 2026 · MALAYSIA UNIVERSITY BLOCKCHAIN ASSOCIATION
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.instagram.com/mubahack/" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://x.com/muba_hack" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">X</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://linktr.ee/malaysiauniversityblockchainas" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Linktree</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor">
+                        <path
+                            d="M13.682 6.002l4.05-4.248 2.235 2.13-6.4 6.716h10.433v3.197h-10.433l6.4 6.716-2.235 2.13-4.05-4.248-2.636-2.763-2.636 2.763-4.05 4.248-2.235-2.13 6.4-6.716h-10.433v-3.197h10.433l-6.4-6.716 2.235-2.13 4.05 4.248 2.636 2.763 2.636-2.763z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/global.js"></script>
+</body>
+
+</html>

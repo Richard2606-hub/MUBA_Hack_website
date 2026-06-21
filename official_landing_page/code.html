@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MUBA HACK 2026 - Hack the Future</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Orbitron:wght@500;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+
+<body class="bg-background text-text-primary antialiased">
+    <div class="noise-bg"></div>
+    <!-- TopNavBar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(167,139,250,0.1)] transition-all duration-300">
+        <div class="flex justify-between items-center px-container-padding py-4 w-full mx-auto">
+            <a class="font-headline-md text-headline-md font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                href="../official_landing_page/code.html">MUBA HACK 2026</a>
+            <div class="hidden md:flex items-center gap-4">
+                <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300 hover:scale-95 rounded-md"
+                    href="../official_landing_page/code.html">Home</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../challenge_tracks/code.html">Tracks</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../event_timeline/code.html">Timeline</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../sponsors/code.html">Sponsors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../getting_here/code.html">Venue</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../frequently_asked_questions/code.html">FAQ</a>
+            </div>
+            <button
+                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
+                Register Now
+            </button>
+            <!-- Mobile Menu Icon (simplified) -->
+            <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex flex-col items-center py-6 gap-4 shadow-xl">
+            <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+                href="../official_landing_page/code.html">Home</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../challenge_tracks/code.html">Tracks</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../event_timeline/code.html">Timeline</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../sponsors/code.html">Sponsors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../judges_n_mentors/code.html">Judges & Mentors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../getting_here/code.html">Venue</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../frequently_asked_questions/code.html">FAQ</a>
+            <button
+                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register
+                Now</button>
+        </div>
+    </nav>
+
+    <main class="w-full overflow-x-hidden">
+        <!-- Hero Section -->
+        <section id="hero-section"
+            class="relative min-h-screen flex items-center justify-center pt-32 pb-section-gap px-container-padding dot-grid">
+            <div class="void-orb bg-accent-glow-violet w-[600px] h-[600px] -top-40 -left-64 animate-float-1"></div>
+            <div
+                class="void-orb bg-accent-glow-cyan w-[500px] h-[500px] top-1/2 -translate-y-1/2 -right-[100px] animate-float-2">
+            </div>
+            <div class="void-orb bg-primary-container w-[700px] h-[700px] bottom-[-20%] left-[20%] animate-float-3 opacity-10">
+            </div>
+            <div id="hero-content" class="max-w-7xl mx-auto text-center z-10 space-y-stack-lg">
+                <div class="space-y-stack-md">
+                    <div class="font-label-mono text-label-mono text-accent-glow-cyan tracking-widest uppercase flex items-center justify-center gap-2 opacity-0 animate-slide-up"
+                        style="animation-delay: 0.1s;">
+                        <span class="material-symbols-outlined text-sm">terminal</span>
+                        <span>ONLINE BUILD & PHYSICAL PITCH</span>
+                    </div>
+                    <div class="opacity-0 animate-slide-up" style="animation-delay: 0.3s;">
+                        <h1
+                            class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-gradient-primary animate-shimmer leading-tight tracking-tighter">
+                            MUBA HACK 2026
+                        </h1>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-text-secondary opacity-0 animate-slide-up"
+                        style="animation-delay: 0.5s;">
+                        Malaysia's premier student-led blockchain hackathon.
+                    </p>
+                </div>
+                <div class="py-6 opacity-0 animate-slide-up" style="animation-delay: 0.8s;">
+                    <div
+                        class="font-label-mono text-label-mono text-text-secondary mb-3 uppercase tracking-widest text-sm">
+                        Registration Closes In</div>
+                    <div class="flex justify-center gap-3 md:gap-4 font-headline-md text-headline-md">
+                        <div class="glass-card px-3 py-2 md:px-4 md:py-3 rounded-lg min-w-[70px] md:min-w-[90px]">
+                            <div id="days" class="text-gradient inline-block">00</div>
+                            <div
+                                class="text-[10px] md:text-xs font-label-mono text-text-secondary mt-1 tracking-widest">
+                                DAYS</div>
+                        </div>
+                        <div class="glass-card px-3 py-2 md:px-4 md:py-3 rounded-lg min-w-[70px] md:min-w-[90px]">
+                            <div id="hours" class="text-gradient inline-block">00</div>
+                            <div
+                                class="text-[10px] md:text-xs font-label-mono text-text-secondary mt-1 tracking-widest">
+                                HOURS</div>
+                        </div>
+                        <div class="glass-card px-3 py-2 md:px-4 md:py-3 rounded-lg min-w-[70px] md:min-w-[90px]">
+                            <div id="minutes" class="text-gradient inline-block">00</div>
+                            <div
+                                class="text-[10px] md:text-xs font-label-mono text-text-secondary mt-1 tracking-widest">
+                                MINS</div>
+                        </div>
+                        <div class="glass-card px-3 py-2 md:px-4 md:py-3 rounded-lg min-w-[70px] md:min-w-[90px]">
+                            <div id="seconds" class="text-gradient inline-block">00</div>
+                            <div
+                                class="text-[10px] md:text-xs font-label-mono text-text-secondary mt-1 tracking-widest">
+                                SECS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-slide-up"
+                    style="animation-delay: 0.7s;">
+                    <button
+                        class="w-full max-md:max-w-[280px] max-md:mx-auto sm:w-auto bg-gradient-to-r from-accent-glow-violet to-accent-glow-cyan text-surface-lowest font-label-mono text-label-mono px-8 py-4 rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(167,139,250,0.6)] transition-all duration-300">
+                        Register Now
+                    </button>
+                    <button
+                        class="w-full max-md:max-w-[280px] max-md:mx-auto sm:w-auto border border-outline text-text-primary font-label-mono text-label-mono px-8 py-4 rounded-full hover:border-accent-glow-cyan hover:text-accent-glow-cyan hover:bg-accent-glow-cyan/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(76,215,246,0.3)] transition-all duration-300">
+                        <a href="#about">
+                            Learn More
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="relative py-24 max-md:py-12 px-container-padding bg-surface-container-low/50 reveal" id="about">
+            <h1 class="text-center font-headline-lg text-headline-lg text-text-primary text-gradient opacity-0"
+                style="animation-duration: 1.5s;">ABOUT MUBA HACK</h1>
+            <div class="max-w-5xl mx-auto space-y-8 pt-stack-md">
+                <div class="glass-card p-8 md:p-10 rounded-xl relative overflow-hidden space-y-6 shadow-lg border-white/10 opacity-0"
+                    style="animation-duration: 1.5s;">
+                    <h2 class="font-headline-md text-headline-md text-text-primary text-gradient relative z-10 pb-2">A
+                        hackathon to ship Malaysia's
+                        next blockchain builders.</h2>
+                    <p class="font-body-lg text-body-md text-text-secondary relative z-10">MUBA Hack 2026 is Malaysia's
+                        first large-scale
+                        student-led hackathon focused entirely on Web3, bringing together developers, designers, and
+                        founders
+                        across Malaysia to build, ship, and demo across 8 days online.</p>
+                    <p class="font-body-lg text-body-md text-text-secondary relative z-10">Hackers form teams, choose a
+                        sponsor track, build
+                        against real APIs and SDKs, and pitch live to track-specific judges nominated by each sponsor.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter opacity-0" style="animation-duration: 1.5s;">
+                    <div
+                        class="glass-card p-4 md:p-6 text-center space-y-2 rounded-lg hover-glow bg-accent-glow-violet/10 border-accent-glow-violet/20">
+                        <svg class="w-10 h-10 mx-auto text-accent-glow-violet mb-2 drop-shadow-[0_0_10px_rgba(167,139,250,0.4)]"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                        </svg>
+                        <div class="font-headline-md text-headline-md text-accent-glow-violet" id="stat-0">0 Days</div>
+                        <div class="font-label-mono text-label-mono text-text-secondary">of Hacking</div>
+                    </div>
+                    <div
+                        class="glass-card p-4 md:p-6 text-center space-y-2 rounded-lg hover-glow bg-primary/10 border-primary/20">
+                        <svg class="w-10 h-10 mx-auto text-primary mb-2 drop-shadow-[0_0_10px_rgba(210,187,255,0.4)]"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                        </svg>
+                        <div class="font-headline-md text-headline-md text-primary" id="stat-1">300-0</div>
+                        <div class="font-label-mono text-label-mono text-text-secondary">Student Builders</div>
+                    </div>
+                    <div
+                        class="glass-card p-4 md:p-6 text-center space-y-2 rounded-lg hover-glow bg-secondary/10 border-secondary/20">
+                        <svg class="w-10 h-10 mx-auto text-secondary mb-2 drop-shadow-[0_0_10px_rgba(76,215,246,0.4)]"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                        </svg>
+                        <div class="font-headline-md text-headline-md text-secondary" id="stat-2">0+</div>
+                        <div class="font-label-mono text-label-mono text-text-secondary">Universities</div>
+                    </div>
+                    <div
+                        class="glass-card p-4 md:p-6 text-center space-y-2 rounded-lg hover-glow pulse-glow bg-tertiary/10 border-tertiary/20">
+                        <svg class="w-10 h-10 mx-auto text-tertiary mb-2 drop-shadow-[0_0_10px_rgba(255,185,95,0.4)]"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
+                        </svg>
+                        <div class="font-headline-md text-headline-md text-tertiary" id="stat-3">0%</div>
+                        <div class="font-label-mono text-label-mono text-text-secondary">To Prize Pool</div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full relative bottom-0 bg-surface-container-lowest border-t border-white/10 no shadows">
+        <div class="flex flex-col md:flex-row justify-between items-center p-stack-lg gap-stack-md max-w-7xl mx-auto">
+            <div class="font-label-caps text-label-caps text-on-surface">
+                © MUBA HACK 2026 · MALAYSIA UNIVERSITY BLOCKCHAIN ASSOCIATION
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.instagram.com/mubahack/" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://x.com/muba_hack" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">X</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://linktr.ee/malaysiauniversityblockchainas" target="_blank" rel="noopener noreferrer"
+                    class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Linktree</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor">
+                        <path
+                            d="M13.682 6.002l4.05-4.248 2.235 2.13-6.4 6.716h10.433v3.197h-10.433l6.4 6.716-2.235 2.13-4.05-4.248-2.636-2.763-2.636 2.763-4.05 4.248-2.235-2.13 6.4-6.716h-10.433v-3.197h10.433l-6.4-6.716 2.235-2.13 4.05 4.248 2.636 2.763 2.636-2.763z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/global.js"></script>
+</body>
+
+</html>

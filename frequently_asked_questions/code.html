@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQ | MUBA HACK 2026</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;family=Plus+Jakarta+Sans:wght@400..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS & Config -->
+    <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased relative min-h-screen flex flex-col">
+    <!-- Atmospheric Background Layers -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <!-- Level 0 Noise -->
+        <div class="absolute inset-0 bg-noise mix-blend-overlay"></div>
+        <!-- Primary Orb Top Left -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/10 blur-[120px]"></div>
+        <!-- Secondary Orb Bottom Right -->
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-secondary/10 blur-[150px]">
+        </div>
+    </div>
+    <!-- TopNavBar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(167,139,250,0.1)] transition-all duration-300">
+        <div class="flex justify-between items-center px-container-padding py-4 w-full mx-auto">
+            <a class="font-headline-md text-headline-md font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                href="../official_landing_page/code.html">MUBA HACK 2026</a>
+            <div class="hidden md:flex items-center gap-4">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../official_landing_page/code.html">Home</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../challenge_tracks/code.html">Tracks</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../event_timeline/code.html">Timeline</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../sponsors/code.html">Sponsors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../getting_here/code.html">Venue</a>
+                <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300 hover:scale-95 rounded-md"
+                    href="../frequently_asked_questions/code.html">FAQ</a>
+            </div>
+            <button
+                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
+                Register Now
+            </button>
+            <!-- Mobile Menu Icon (simplified) -->
+            <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex flex-col items-center py-6 gap-4 shadow-xl">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../official_landing_page/code.html">Home</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../challenge_tracks/code.html">Tracks</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../event_timeline/code.html">Timeline</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../sponsors/code.html">Sponsors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../judges_n_mentors/code.html">Judges & Mentors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../getting_here/code.html">Venue</a>
+            <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+                href="../frequently_asked_questions/code.html">FAQ</a>
+            <button
+                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register
+                Now</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Canvas -->
+    <main class="relative z-10 w-full overflow-x-hidden flex-grow pt-[120px] pb-section-gap px-container-padding flex flex-col items-center">
+        <!-- Header Section -->
+        <header class="py-12 sm:py-16 md:py-20 text-center mb-stack-lg max-w-3xl w-full">
+            <div
+                class="flex items-center justify-center gap-2 mb-stack-sm text-secondary font-label-mono text-label-mono">
+            </div>
+            <h1
+                class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text-primary mb-stack-sm">
+                FREQUENTLY ASKED <span class="text-gradient">QUESTIONS</span>
+            </h1>
+        </header>
+        <!-- FAQ Accordion Container -->
+        <div class="w-full max-w-4xl flex flex-col gap-gutter" id="faq-container">
+            <!-- Accordion Item 1 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">01</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            What is the format of MUBA Hack 2026?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>The event follows a hybrid 18-day format. It consists of an online build phase and a physical pitch day.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 2 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">02</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Will mentorship be provided?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>Mentorship can be available throughout the online hack period with specific timeslots for teams to choose from.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 3 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">03</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Who can participate?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>All Malaysians and visa holders currently residing in Malaysia are eligible to join.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 4 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">04</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Can I join without a team?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>No, you'll need to be in a team to participate. Don't worry if you don't have one yet—we can help match you with others! (** give teammate finding link)</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 5 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">05</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Are there any verification requirements?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>Each participant will need to submit their LinkedIn account for verification.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 6 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">06</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            What is the allowed team size?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>A team can consist of 2 to 4 members.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 7 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">07</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Can I join multiple teams?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>No participants can belong to more than one team.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 8 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">8</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Can we build on a past project?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>The project idea must be built from scratch. Submissions must be the team's own original work created during the online hackathon period.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 9 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">09</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Can we use pre-built private frameworks?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>The rule to build from scratch includes frameworks that were built privately by the team prior to the event.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 10 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">10</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Who owns the rights to the project?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>Participants own the intellectual property (IP) of their projects.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 11 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">11</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            Where do we submit our projects?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>Devfolio is the suggested platform for hackathon registration and submission. Participants are not eligible for the Pitching Session if there are no submissions done on Devfolio.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 12 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">12</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            What materials do we need to submit?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>You must submit a pitch deck, a link to the project's socials (preferably X), a GitHub repository link, a link for the deployed app (if applicable), and a video of the overall MVP.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 13 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">13</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            What needs to be included in the pitch deck?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>The pitch deck must cover your Problem Statement & Project Objective, Motivation and Challenges, Commercialisation and Business Model, Technology Stacks and Track Chosen, and the Overall Concept of the Project.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 14 -->
+            <div
+                class="accordion-item glass-card rounded-lg transition-all duration-300 border-l-2 border-l-transparent hover:border-white/20">
+                <button aria-expanded="false"
+                    class="w-full flex items-center justify-between p-4 md:p-stack-md text-left focus:outline-none group">
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="text-primary font-label-mono text-label-mono opacity-50 group-hover:opacity-100 transition-opacity">14</span>
+                        <h3
+                            class="font-body-lg text-body-lg text-text-primary font-medium group-hover:text-primary transition-colors">
+                            How are projects evaluated?</h3>
+                    </div>
+                    <span
+                        class="material-symbols-outlined text-text-secondary group-hover:text-primary transition-all duration-300 transform"
+                        data-icon-state="add">add</span>
+                </button>
+                <div class="accordion-content px-4 md:px-stack-md text-on-surface-variant font-body-md text-body-md">
+                    <div>
+                        <p>Projects are judged based on Technical Implementation (30%), Practicality & Impact (30%), Presentation & Clarity (20%), User Experience (UX) & Design (10%), and Originality. Judges will also look at Functionality, Potential Impact, Novelty, UX, Composability and integration, and Business Plan viability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Still Have Questions Section -->
+        <div class="scroll-animate opacity-0 mt-stack-lg text-center max-w-2xl w-full backdrop-blur-[16px] bg-primary/10 p-stack-lg rounded-xl flex flex-col items-center border border-primary/30 shadow-[0_0_30px_rgba(210,187,255,0.1)] hover:shadow-[0_0_50px_rgba(210,187,255,0.25)] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <h2 class="font-headline-md text-headline-md text-text-primary mb-stack-sm relative z-10">
+                Still have <span class="text-gradient">questions?</span>
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md relative z-10">
+                Can't find the answer you're looking for? Reach out to us and we'll get back to you as soon as possible.
+            </p>
+            <a href="mailto:malaysiauniversityblockchainas@gmail.com"
+                class="bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-8 py-4 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-all duration-300 relative z-10">
+                Email Us
+            </a>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full relative bottom-0 bg-surface-container-lowest border-t border-white/10 no shadows">
+        <div class="flex flex-col md:flex-row justify-between items-center p-stack-lg gap-stack-md max-w-7xl mx-auto">
+            <div class="font-label-caps text-label-caps text-on-surface">
+                © MUBA HACK 2026 · MALAYSIA UNIVERSITY BLOCKCHAIN ASSOCIATION
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.instagram.com/mubahack/" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://x.com/muba_hack" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">X</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://linktr.ee/malaysiauniversityblockchainas" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Linktree</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <path d="M13.682 6.002l4.05-4.248 2.235 2.13-6.4 6.716h10.433v3.197h-10.433l6.4 6.716-2.235 2.13-4.05-4.248-2.636-2.763-2.636 2.763-4.05 4.248-2.235-2.13 6.4-6.716h-10.433v-3.197h10.433l-6.4-6.716 2.235-2.13 4.05 4.248 2.636 2.763 2.636-2.763z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- Interactive Logic -->
+    <script src="../assets/global.js"></script>
+</body>
+
+</html>
