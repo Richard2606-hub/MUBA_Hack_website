@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Countdown Timer (Landing page)
     const daysEl = document.getElementById("days");
     if (daysEl) {
-        const countDownDate = new Date("Aug 1, 2026 23:59:59").getTime();
+        const countDownDate = new Date("Jun 30, 2026 00:00:00").getTime();
         const countdownInterval = setInterval(function () {
             const now = new Date().getTime();
             const distance = countDownDate - now;
