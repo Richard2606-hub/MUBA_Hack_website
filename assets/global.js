@@ -475,11 +475,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Countdown Timer (Landing page)
     const daysEl = document.getElementById("days");
+    const timerTitleEl = document.getElementById("timer-title");
     if (daysEl) {
-        const countDownDate = new Date("Aug 1, 2026 23:59:59").getTime();
+        const registrationStartDate = new Date("Jun 30, 2026 00:00:00").getTime();
+        const registrationCloseDate = new Date("Aug 1, 2026 23:59:59").getTime();
         const countdownInterval = setInterval(function () {
             const now = new Date().getTime();
-            const distance = countDownDate - now;
+            let distance;
+            let isRegistrationOpen = false;
+
+            if (now < registrationStartDate) {
+                distance = registrationStartDate - now;
+                if (timerTitleEl && timerTitleEl.innerText !== "Registration Starts In") {
+                    timerTitleEl.innerText = "Registration Starts In";
+                }
+            } else {
+                distance = registrationCloseDate - now;
+                isRegistrationOpen = true;
+                if (timerTitleEl && timerTitleEl.innerText !== "Registration Closes In") {
+                    timerTitleEl.innerText = "Registration Closes In";
+                }
+            }
+
+            if (distance < 0 && isRegistrationOpen) {
+                clearInterval(countdownInterval);
+                daysEl.innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                return;
+            }
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -490,14 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                daysEl.innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-            }
         }, 1000);
     }
 
