@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Signal that JS is loaded — used by CSS to gate animation visibility
+    document.documentElement.classList.add('js-loaded');
+
     // Force scroll to top on page reload to prevent downward shifting and ensure elements stay hidden until actual scroll
     if (history.scrollRestoration) {
         history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
+
+    // --- Mobile detection (used throughout for performance gating) ---
+    const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        || (window.matchMedia && window.matchMedia('(max-width: 768px)').matches)
+        || ('ontouchstart' in window && window.innerWidth < 1024);
 
     // --- Dynamically load GSAP, ScrollTrigger, and initialize Tech Background ---
     function initTechBackground() {
@@ -27,10 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.body.insertBefore(bgContainer, document.body.firstChild);
 
-        const symbols = ['{ }', '< />', '0101', 'AI', 'WEB3', 'λ', '=>', '0x', 'NODE', 'ETH', '</>', '[ ]', '++', 'async', 'await', 'API', 'REACT', 'VUE', 'RUST', 'GO', 'ML', 'DATA', '0', '1', '()', '///', '/**/', '&&', '||', '!=', '0x1A'];
+        const symbols = ['{ }', '</ >', '0101', 'AI', 'WEB3', 'λ', '=>', '0x', 'NODE', 'ETH', '</>', '[ ]', '++', 'async', 'await', 'API', 'REACT', 'VUE', 'RUST', 'GO', 'ML', 'DATA', '0', '1', '()', '///', '/**/', '&&', '||', '!=', '0x1A'];
         const colors = ['rgba(167, 139, 250, 0.4)', 'rgba(76, 215, 246, 0.4)', 'rgba(210, 187, 255, 0.3)', 'rgba(244, 114, 182, 0.4)', 'rgba(52, 211, 153, 0.3)'];
-        const numElements = 65;
+
+        // Fix 1: Drastically reduce element count on mobile to prevent GPU saturation
+        const numElements = isMobile ? 15 : 65;
+        const numOrbs = isMobile ? 2 : 5;
+
         const parallaxWrappers = [];
+        // Store all infinite tweens so we can pause/resume them (Fix 3)
+        const infiniteTweens = [];
 
         // Single global timeline for all parallax elements on scroll to save CPU
         const globalParallaxTl = gsap.timeline({
@@ -42,44 +56,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 1. Dynamic Cursor Spotlight (toned down)
-        const cursorGlow = document.createElement('div');
-        Object.assign(cursorGlow.style, {
-            position: 'absolute',
-            width: '800px',
-            height: '800px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(76, 215, 246, 0.06) 0%, rgba(167, 139, 250, 0.02) 40%, transparent 70%)',
-            pointerEvents: 'none',
-            transform: 'translate(-50%, -50%)',
-            zIndex: '1',
-            mixBlendMode: 'screen',
-            opacity: 0
-        });
-        bgContainer.appendChild(cursorGlow);
+        // 1. Dynamic Cursor Spotlight (skip on mobile — no mouse cursor)
+        let cursorGlow = null;
+        if (!isMobile) {
+            cursorGlow = document.createElement('div');
+            Object.assign(cursorGlow.style, {
+                position: 'absolute',
+                width: '800px',
+                height: '800px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(76, 215, 246, 0.06) 0%, rgba(167, 139, 250, 0.02) 40%, transparent 70%)',
+                pointerEvents: 'none',
+                transform: 'translate(-50%, -50%)',
+                zIndex: '1',
+                mixBlendMode: 'screen',
+                opacity: 0,
+                willChange: 'transform, opacity'
+            });
+            bgContainer.appendChild(cursorGlow);
+        }
 
-        // 2. Neon Floating Symbols (toned down)
+        // 2. Neon Floating Symbols (reduced count on mobile)
         for (let i = 0; i < numElements; i++) {
             const wrapper = document.createElement('div');
             Object.assign(wrapper.style, {
                 position: 'absolute',
                 left: `${Math.random() * 100}vw`,
                 top: `${Math.random() * 100}vh`,
+                // Fix 2: Promote to compositor layer for GPU-only compositing
+                willChange: 'transform',
             });
             bgContainer.appendChild(wrapper);
 
             const el = document.createElement('div');
             el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
             
-            Object.assign(el.style, {
+            const elStyles = {
                 color: colors[Math.floor(Math.random() * colors.length)],
                 fontFamily: '"JetBrains Mono", monospace',
                 fontSize: `${Math.random() * 40 + 15}px`,
                 fontWeight: '700',
                 opacity: 0,
-                textShadow: '0 0 8px currentColor',
                 whiteSpace: 'nowrap'
-            });
+            };
+
+            // Fix 2: Remove textShadow on mobile — it forces expensive paint operations per frame
+            if (!isMobile) {
+                elStyles.textShadow = '0 0 8px currentColor';
+            }
+            
+            Object.assign(el.style, elStyles);
             
             wrapper.appendChild(el);
             parallaxWrappers.push({ node: wrapper, speed: Math.random() * 1.5 + 0.5 });
@@ -90,24 +116,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 delay: Math.random() * 2
             });
 
-            gsap.to(el, {
+            // Fix 3: Store infinite tweens so we can pause them when off-screen
+            const floatTween = gsap.to(el, {
                 y: `+=${Math.random() * 200 - 100}`,
                 x: `+=${Math.random() * 150 - 75}`,
                 rotation: Math.random() * 180 - 90,
-                duration: Math.random() * 20 + 10,
+                duration: isMobile ? Math.random() * 30 + 15 : Math.random() * 20 + 10,
                 repeat: -1,
                 yoyo: true,
-                ease: "sine.inOut"
+                ease: "sine.inOut",
+                force3D: true  // Fix 2: Force GPU compositing
             });
+            infiniteTweens.push(floatTween);
 
             globalParallaxTl.to(wrapper, {
                 yPercent: - (Math.random() * 400 + 150),
-                ease: "none"
+                ease: "none",
+                force3D: true
             }, 0);
         }
 
-        // 3. Giant Ambient Glowing Orbs (toned down)
-        const numOrbs = 5;
+        // 3. Giant Ambient Glowing Orbs (reduced count on mobile)
         const orbColors = ['rgba(167, 139, 250, 0.15)', 'rgba(76, 215, 246, 0.15)', 'rgba(210, 187, 255, 0.12)', 'rgba(244, 114, 182, 0.15)', 'rgba(52, 211, 153, 0.12)'];
         for (let i = 0; i < numOrbs; i++) {
             const wrapper = document.createElement('div');
@@ -115,13 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 position: 'absolute',
                 left: `${Math.random() * 100}vw`,
                 top: `${Math.random() * 100}vh`,
+                willChange: 'transform',
             });
             bgContainer.appendChild(wrapper);
 
             const orb = document.createElement('div');
+            const orbSize = isMobile ? Math.random() * 400 + 200 : Math.random() * 600 + 300;
             Object.assign(orb.style, {
-                width: `${Math.random() * 600 + 300}px`,
-                height: `${Math.random() * 600 + 300}px`,
+                width: `${orbSize}px`,
+                height: `${orbSize}px`,
                 borderRadius: '50%',
                 background: `radial-gradient(circle, ${orbColors[i % orbColors.length]} 0%, transparent 70%)`,
                 mixBlendMode: 'screen',
@@ -130,51 +161,74 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.appendChild(orb);
             parallaxWrappers.push({ node: wrapper, speed: Math.random() * 0.2 + 0.05 });
 
-            gsap.to(orb, {
+            // Fix 3: Store infinite tweens
+            const orbTween = gsap.to(orb, {
                 x: `+=${Math.random() * 300 - 150}`,
                 y: `+=${Math.random() * 300 - 150}`,
                 scale: Math.random() * 0.5 + 1.2,
-                duration: Math.random() * 12 + 8,
+                duration: isMobile ? Math.random() * 18 + 12 : Math.random() * 12 + 8,
                 repeat: -1,
                 yoyo: true,
-                ease: "sine.inOut"
+                ease: "sine.inOut",
+                force3D: true
             });
+            infiniteTweens.push(orbTween);
 
             globalParallaxTl.to(wrapper, {
                 yPercent: - (Math.random() * 200 + 50),
-                ease: "none"
+                ease: "none",
+                force3D: true
             }, 0);
         }
 
-        // Add interactive mouse parallax & cursor spotlight
-        // Setup gsap.quickTo for highly optimized mouse movement
-        const cursorXTo = gsap.quickTo(cursorGlow, "x", {duration: 0.6, ease: "power2.out"});
-        const cursorYTo = gsap.quickTo(cursorGlow, "y", {duration: 0.6, ease: "power2.out"});
-        const cursorOpacityTo = gsap.quickTo(cursorGlow, "opacity", {duration: 0.6, ease: "power2.out"});
-        
-        const parallaxXSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "x", {duration: 2, ease: "power2.out"}));
-        const parallaxYSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "y", {duration: 2, ease: "power2.out"}));
-
-        window.addEventListener('mousemove', (e) => {
-            // Update Spotlight
-            cursorXTo(e.clientX);
-            cursorYTo(e.clientY);
-            cursorOpacityTo(1);
-
-            const mouseX = (e.clientX / window.innerWidth) - 0.5;
-            const mouseY = (e.clientY / window.innerHeight) - 0.5;
-
-            // Parallax Shift using quickTo setters
-            parallaxWrappers.forEach((item, index) => {
-                parallaxXSetters[index](mouseX * 150 * item.speed);
-                parallaxYSetters[index](mouseY * 150 * item.speed);
+        // Fix 3: Pause infinite tweens when hero section is scrolled past (they're not visible)
+        const heroSection = document.getElementById('hero-section');
+        if (heroSection) {
+            ScrollTrigger.create({
+                trigger: heroSection,
+                start: "top top",
+                // End well after the hero is off-screen (account for pin duration)
+                end: "+=300%",
+                onLeave: () => {
+                    infiniteTweens.forEach(t => t.pause());
+                },
+                onEnterBack: () => {
+                    infiniteTweens.forEach(t => t.resume());
+                },
             });
-        });
-        
-        // Hide spotlight when mouse leaves the window
-        document.body.addEventListener('mouseleave', () => {
-            cursorOpacityTo(0);
-        });
+        }
+
+        // Fix 4: Skip mouse parallax entirely on touch devices — no cursor to follow
+        if (!isMobile) {
+            // Setup gsap.quickTo for highly optimized mouse movement
+            const cursorXTo = gsap.quickTo(cursorGlow, "x", {duration: 0.6, ease: "power2.out"});
+            const cursorYTo = gsap.quickTo(cursorGlow, "y", {duration: 0.6, ease: "power2.out"});
+            const cursorOpacityTo = gsap.quickTo(cursorGlow, "opacity", {duration: 0.6, ease: "power2.out"});
+            
+            const parallaxXSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "x", {duration: 2, ease: "power2.out"}));
+            const parallaxYSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "y", {duration: 2, ease: "power2.out"}));
+
+            window.addEventListener('mousemove', (e) => {
+                // Update Spotlight
+                cursorXTo(e.clientX);
+                cursorYTo(e.clientY);
+                cursorOpacityTo(1);
+
+                const mouseX = (e.clientX / window.innerWidth) - 0.5;
+                const mouseY = (e.clientY / window.innerHeight) - 0.5;
+
+                // Parallax Shift using quickTo setters
+                parallaxWrappers.forEach((item, index) => {
+                    parallaxXSetters[index](mouseX * 150 * item.speed);
+                    parallaxYSetters[index](mouseY * 150 * item.speed);
+                });
+            });
+            
+            // Hide spotlight when mouse leaves the window
+            document.body.addEventListener('mouseleave', () => {
+                cursorOpacityTo(0);
+            });
+        }
     }
 
     // --- Hero Section Matrix Dissolve Effect ---
@@ -184,13 +238,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!heroSection || !heroContent) return;
 
+        // Fix 6: Prevent iOS Safari overscroll bounce during pinned section
+        if (isMobile) {
+            document.documentElement.style.overscrollBehavior = 'none';
+        }
+
         const heroTl = gsap.timeline({
             scrollTrigger: {
                 trigger: heroSection,
                 start: "top top",
                 end: "+=150%",
                 pin: true,
-                scrub: 1,
+                scrub: isMobile ? 2 : 1,  // Smoother scrub on mobile (more lerp)
+                // Fix 5: Prevent GSAP from using anticipatePin on mobile (can cause flicker)
+                anticipatePin: isMobile ? 0 : 1,
             }
         });
 
@@ -205,13 +266,24 @@ document.addEventListener('DOMContentLoaded', () => {
         heroTl.to(heroContent, {
             scale: 1.5,
             opacity: 0,
-            // Removed expensive blur filter from scroll animation for performance
             y: -100,
             duration: 1,
             ease: "power2.in",
+            force3D: true,  // Fix 2: Force GPU compositing
             onUpdate: function() {
                 if (heroH1) {
                     const progress = this.progress();
+
+                    // Fix 5: Skip matrix text scramble on mobile — DOM manipulation
+                    // during scrub forces layout recalculation and causes jank
+                    if (isMobile) {
+                        // On mobile, just reset text when scrolled back to top
+                        if (progress === 0) {
+                            heroH1.innerText = originalText;
+                        }
+                        return;
+                    }
+
                     const now = Date.now();
                     
                     // Throttle DOM updates to max ~15 times per second
@@ -235,14 +307,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Tech Symbols fly past the camera (Warp Drive effect)
         const techWrappers = document.querySelectorAll('#tech-bg-container > div');
+        // Fix 5: On mobile, limit warp drive to first 8 elements instead of all 70
+        const maxWarpElements = isMobile ? 8 : techWrappers.length;
+        let warpCount = 0;
+
         techWrappers.forEach((wrapper, index) => {
-            if(index === 0) return; // Skip cursor glow
+            if(index === 0 && !isMobile) return; // Skip cursor glow (only exists on desktop)
+            if(isMobile && index === 0) return; // Skip first wrapper on mobile too
             
+            if (warpCount >= maxWarpElements) return;
+            warpCount++;
+
             heroTl.to(wrapper, {
                 scale: Math.random() * 8 + 4,
                 opacity: 0,
                 duration: 1,
-                ease: "power3.in"
+                ease: "power3.in",
+                force3D: true
             }, 0);
         });
     }
@@ -254,13 +335,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(script);
     };
 
-    loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", () => {
-        loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js", () => {
-            initTechBackground();
-            initHeroScrollTrigger();
+    // Fix 7: Use requestIdleCallback to defer non-critical animation init
+    // so it doesn't block the initial paint and user interaction
+    const deferInit = (callback) => {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(callback, { timeout: 2000 });
+        } else {
+            // Fallback for browsers without requestIdleCallback (Safari)
+            setTimeout(callback, 100);
+        }
+    };
+
+    deferInit(() => {
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", () => {
+            loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js", () => {
+                initTechBackground();
+                initHeroScrollTrigger();
+            });
         });
     });
-    // --- End Tech Background ---
+    // --- End Tech Background ----
 
     // 0. Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -280,16 +374,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 1. Navbar Scroll Effect
+    // 1. Navbar Scroll Effect (debounced with rAF to prevent flicker)
     const navbar = document.getElementById('navbar');
     if (navbar) {
+        let navTicking = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-                navbar.classList.remove('bg-bg-surface/70', 'border-white/5');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-                navbar.classList.add('bg-bg-surface/70', 'border-white/5');
+            if (!navTicking) {
+                navTicking = true;
+                requestAnimationFrame(() => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('nav-scrolled');
+                        navbar.classList.remove('bg-bg-surface/70', 'border-white/5');
+                    } else {
+                        navbar.classList.remove('nav-scrolled');
+                        navbar.classList.add('bg-bg-surface/70', 'border-white/5');
+                    }
+                    navTicking = false;
+                });
             }
         });
     }
@@ -326,12 +427,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         const grid = entry.target.querySelector('.grid.opacity-0');
 
                         if (h1) {
+                            h1.style.visibility = 'visible';
                             h1.classList.add('animate-slide-up');
                             h1.classList.remove('opacity-0');
                         }
                         
                         if (card) {
                             setTimeout(() => {
+                                card.style.visibility = 'visible';
                                 card.classList.add('animate-slide-up');
                                 card.classList.remove('opacity-0');
                             }, 300);
@@ -339,6 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         if (grid) {
                             setTimeout(() => {
+                                grid.style.visibility = 'visible';
                                 grid.classList.add('animate-slide-up');
                                 grid.classList.remove('opacity-0');
                             }, 600);
@@ -354,6 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 } else if (entry.target.classList.contains('scroll-animate')) {
+                    entry.target.style.visibility = 'visible';
                     entry.target.classList.add('animate-fade-in-up');
                     entry.target.classList.remove('opacity-0');
                 }
@@ -371,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Countdown Timer (Landing page)
     const daysEl = document.getElementById("days");
     if (daysEl) {
-        const countDownDate = new Date("Jun 30, 2026 00:00:00").getTime();
+        const countDownDate = new Date("Aug 1, 2026 23:59:59").getTime();
         const countdownInterval = setInterval(function () {
             const now = new Date().getTime();
             const distance = countDownDate - now;
@@ -444,27 +549,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineContainer = document.querySelector('.relative.pl-8.md\\:pl-16.py-8');
     if (timelineContainer) {
         const eventDates = [
-            new Date("2026-06-12T00:00:00+08:00"),
-            new Date("2026-06-26T00:00:00+08:00"),
-            new Date("2026-07-31T00:00:00+08:00"),
-            new Date("2026-08-07T00:00:00+08:00"),
-            new Date("2026-08-15T00:00:00+08:00"),
-            new Date("2026-08-26T00:00:00+08:00"),
-            new Date("2026-09-04T23:59:00+08:00"),
-            new Date("2026-09-12T08:00:00+08:00"),
-            new Date("2026-09-12T09:00:00+08:00")
+            new Date("2026-06-20T00:00:00+08:00"),
+            new Date("2026-06-30T00:00:00+08:00"),
+            new Date("2026-08-25T23:59:00+08:00"),
+            new Date("2026-09-05T23:59:00+08:00"),
+            new Date("2026-09-06T08:00:00+08:00")
         ];
 
         function updateTimelineGlow() {
             const now = new Date();
             const cards = Array.from(timelineContainer.querySelectorAll(':scope > .relative.mb-section-gap'));
 
-            let activeIndex = -1;
-            for (let i = 0; i < eventDates.length; i++) {
-                if (now >= eventDates[i]) activeIndex = i;
-            }
-
             cards.forEach((cardWrap, index) => {
+                const eDate = eventDates[index];
+                const isToday = now.getFullYear() === eDate.getFullYear() && 
+                                now.getMonth() === eDate.getMonth() && 
+                                now.getDate() === eDate.getDate();
                 const card = cardWrap.querySelector('.rounded-xl');
                 const nodeWrap = cardWrap.querySelector('.absolute.z-10.flex.items-center.justify-center, .absolute.rounded-full.z-10');
                 const title = cardWrap.querySelector('h3');
@@ -488,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const existingGlow = card.querySelector('.blur-\\[50px\\]');
                 if (existingGlow) existingGlow.remove();
 
-                if (index === activeIndex) {
+                if (isToday) {
                     card.className = "bg-surface-container/80 backdrop-blur-2xl border border-secondary/30 rounded-xl p-6 md:p-8 shadow-[0_4px_30px_rgba(76,215,246,0.05)] relative overflow-hidden group";
 
                     const glowBg = document.createElement('div');
@@ -509,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     badge.innerText = "ACTIVE";
                     headerRow.appendChild(badge);
 
-                } else if (index < activeIndex) {
+                } else if (now > eDate) {
                     card.className = "bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300 opacity-80";
 
                     nodeWrap.className = "absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-primary border-2 border-primary z-10 flex items-center justify-center shadow-[0_0_10px_rgba(210,187,255,0.4)]";

@@ -2718,6 +2718,14 @@ body {
   background-attachment: fixed;
 }
 
+/* Fix: Disable background-attachment: fixed on mobile — it forces full-page
+   repaint on every scroll frame in iOS Safari & Chrome Android */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* Noise overlay */
 
 .noise-bg, .noise-overlay {
@@ -2729,8 +2737,17 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 50;
+  z-index: 9999;
   mix-blend-mode: overlay;
+}
+
+/* Fix: On mobile, remove mix-blend-mode: overlay — it forces the browser to
+   flatten the entire compositing layer stack on every frame, causing flashing */
+@media (max-width: 768px) {
+  .noise-bg, .noise-overlay {
+    mix-blend-mode: normal;
+    opacity: 0.02;
+  }
 }
 
 .bg-noise {
@@ -2824,6 +2841,17 @@ body {
   z-index: 0;
   pointer-events: none;
   opacity: 0.4;
+  /* Fix: Promote to GPU layer for smoother compositing */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Fix: Reduce blur radius on mobile — 120px kernel is extremely expensive on mobile GPUs */
+@media (max-width: 768px) {
+  .void-orb {
+    filter: blur(60px);
+    opacity: 0.3;
+  }
 }
 
 @keyframes float {
@@ -2883,11 +2911,35 @@ body {
   animation: shimmer 4s linear infinite;
 }
 
+/* Fix: On mobile, simplify shimmer to avoid per-frame repaints on the large hero title */
+@media (max-width: 768px) {
+  .animate-shimmer {
+    animation-duration: 6s;
+  }
+}
+
 .nav-scrolled {
   background-color: rgba(17, 24, 39, 0.95) !important;
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fix: Containment for the tech-bg animated container — tells the browser
+   that repaints inside won't affect the rest of the page layout */
+#tech-bg-container {
+  contain: layout style paint;
+}
+
+/* FOUC Prevention: Elements starting at opacity-0 must also be invisible
+   to prevent flash before CSS animation/JS kicks in */
+.opacity-0:not(.animate-slide-up):not(.animate-fade-in-up) {
+  visibility: hidden;
+}
+
+.animate-slide-up,
+.animate-fade-in-up {
+  visibility: visible;
 }
 
 .marker\:text-green-400 *::marker {

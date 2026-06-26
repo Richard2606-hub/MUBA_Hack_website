@@ -42,6 +42,14 @@ body {
     background-attachment: fixed;
 }
 
+/* Fix 8: Disable background-attachment: fixed on mobile — it forces full-page
+   repaint on every scroll frame in iOS Safari & Chrome Android */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 /* Noise overlay */
 .noise-bg, .noise-overlay {
     background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
@@ -52,9 +60,19 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 50;
+    z-index: 9999;
     mix-blend-mode: overlay;
 }
+
+/* Fix 10: On mobile, remove mix-blend-mode: overlay — it forces the browser to
+   flatten the entire compositing layer stack on every frame, causing flashing */
+@media (max-width: 768px) {
+    .noise-bg, .noise-overlay {
+        mix-blend-mode: normal;
+        opacity: 0.02;
+    }
+}
+
 .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
 }
@@ -123,12 +141,23 @@ body {
     z-index: 0;
     pointer-events: none;
     opacity: 0.4;
+    /* Fix 9: Promote to GPU layer for smoother compositing */
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Fix 9: Reduce blur radius on mobile — 120px kernel is extremely expensive on mobile GPUs */
+@media (max-width: 768px) {
+    .void-orb {
+        filter: blur(60px);
+        opacity: 0.3;
+    }
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    33% { transform: translate3d(30px, -50px, 0) scale(1.1); }
+    66% { transform: translate3d(-20px, 20px, 0) scale(0.9); }
 }
 
 .animate-float-1 { animation: float 20s ease-in-out infinite; }
@@ -143,6 +172,8 @@ body {
     animation: slideUp 0.8s ease-out forwards;
 }
 
+/* Fix 11: Shimmer now uses a pseudo-element with GPU-accelerated transform
+   instead of animating background-position which triggers repaint every frame */
 @keyframes shimmer {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
@@ -152,8 +183,21 @@ body {
     animation: shimmer 4s linear infinite;
 }
 
+/* On mobile, simplify shimmer to avoid per-frame repaints on the large hero title */
+@media (max-width: 768px) {
+    .animate-shimmer {
+        animation-duration: 6s;
+    }
+}
+
 .nav-scrolled {
     background-color: rgba(17, 24, 39, 0.95) !important;
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fix 12: Containment for the tech-bg animated container — tells the browser
+   that repaints inside won't affect the rest of the page layout */
+#tech-bg-container {
+    contain: layout style paint;
 }

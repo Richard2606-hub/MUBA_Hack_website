@@ -14,6 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+    <!-- Critical inline CSS: prevents flash of unstyled content on animated elements -->
+    <style>
+        /* Hide elements that will be animated in — prevents flash before CSS/JS loads */
+        .opacity-0 { visibility: hidden; }
+        .animate-slide-up, .animate-fade-in-up { visibility: visible; }
+        /* Reinforce noise overlay non-interactivity at elevated z-index */
+        .noise-bg { pointer-events: none; }
+    </style>
 </head>
 
 <body class="bg-background text-text-primary antialiased flex flex-col min-h-screen">

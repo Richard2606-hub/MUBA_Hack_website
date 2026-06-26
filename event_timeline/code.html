@@ -11,6 +11,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
                 rel="stylesheet" />
         <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+    <!-- Critical inline CSS: prevents flash of unstyled content on animated elements -->
+    <style>
+        /* Hide elements that will be animated in — prevents flash before CSS/JS loads */
+        .opacity-0 { visibility: hidden; }
+        .animate-slide-up, .animate-fade-in-up { visibility: visible; }
+        /* Reinforce noise overlay non-interactivity at elevated z-index */
+        .noise-bg { pointer-events: none; }
+    </style>
 </head>
 
 <body class="text-text-primary antialiased min-h-screen flex flex-col relative cyber-grid">
@@ -87,40 +95,25 @@
                                 <div
                                         class="absolute left-[15px] md:left-[31px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-transparent timeline-line-glow">
                                 </div>
-                                <!-- Timeline Item 1 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node (Pulsing) -->
-                                        <div
-                                                class="absolute -left-[41px] md:-left-[57px] top-1 w-6 h-6 z-10 flex items-center justify-center">
-                                                <div
-                                                        class="absolute inset-0 rounded-full border-2 border-secondary animate-pulse-ring">
-                                                </div>
-                                                <div
-                                                        class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_10px_#4cd7f6]">
-                                                </div>
-                                        </div>
+
+                                <!-- Timeline Item 1: Hackathon Reveal -->
+                                <div class="timeline-item relative mb-section-gap scroll-animate opacity-0"
+                                        data-date="2026-06-20" style="animation-duration: 2.5s;">
+                                        <!-- Node Container -->
+                                        <div class="timeline-node"></div>
                                         <!-- Content -->
-                                        <div
-                                                class="bg-surface-container/80 backdrop-blur-2xl border border-secondary/30 rounded-xl p-6 md:p-8 shadow-[0_4px_30px_rgba(76,215,246,0.05)] relative overflow-hidden group">
-                                                <!-- Subtle background glow in card -->
-                                                <div
-                                                        class="absolute -right-20 -top-20 w-40 h-40 bg-secondary/10 rounded-full blur-[50px] pointer-events-none">
-                                                </div>
+                                        <div class="timeline-card">
                                                 <div
                                                         class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
                                                         <div class="flex items-center gap-3">
-                                                                <h3
-                                                                        class="font-headline-md text-headline-md text-text-primary group-hover:text-secondary transition-colors">
+                                                                <h3 class="timeline-title font-headline-md text-headline-md">
                                                                         Hackathon Reveal</h3>
-                                                                <span
-                                                                        class="px-2 py-0.5 rounded text-[10px] font-label-caps tracking-widest bg-secondary/20 text-secondary border border-secondary/30">UPCOMING</span>
+                                                                <span class="timeline-badge"></span>
                                                         </div>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-secondary flex items-center gap-2 bg-secondary/10 px-3 py-1 rounded-md border border-secondary/20">
+                                                        <div class="timeline-date-chip font-label-mono text-label-mono flex items-center gap-2">
                                                                 <span
                                                                         class="material-symbols-outlined text-[16px]">campaign</span>
-                                                                12TH JUNE
+                                                                20TH JUNE
                                                         </div>
                                                 </div>
                                                 <p
@@ -129,174 +122,58 @@
                                                 </p>
                                         </div>
                                 </div>
-                                <!-- Timeline Item 2 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
+
+                                <!-- Timeline Item 2: Registration Starts -->
+                                <div class="timeline-item relative mb-section-gap scroll-animate opacity-0"
+                                        data-date="2026-06-30" style="animation-duration: 2.5s;">
+                                        <!-- Node Container -->
+                                        <div class="timeline-node"></div>
                                         <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                        <div class="timeline-card">
                                                 <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Registration Starts</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
+                                                        <div class="flex items-center gap-3">
+                                                                <h3 class="timeline-title font-headline-md text-headline-md">
+                                                                        Registration Starts</h3>
+                                                                <span class="timeline-badge"></span>
+                                                        </div>
+                                                        <div class="timeline-date-chip font-label-mono text-label-mono flex items-center gap-2">
                                                                 <span
                                                                         class="material-symbols-outlined text-[16px]">app_registration</span>
-                                                                26TH JUNE
+                                                                30TH JUNE
                                                         </div>
                                                 </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                <p class="font-body-md text-body-md text-on-surface-variant relative z-10">
                                                         Registration officially opens. Teams of 2 to 4 members can begin
                                                         registering via the Devfolio platform.
                                                 </p>
                                         </div>
                                 </div>
-                                <!-- Timeline Item 3 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
+
+                                <!-- Timeline Item 3: Registration Closes -->
+                                <div class="timeline-item relative mb-section-gap scroll-animate opacity-0"
+                                        data-date="2026-08-25" style="animation-duration: 2.5s;">
+                                        <!-- Node Container -->
+                                        <div class="timeline-node"></div>
                                         <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                        <div class="timeline-card">
                                                 <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Workshop 1</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
-                                                                <span
-                                                                        class="material-symbols-outlined text-[16px]">school</span>
-                                                                31ST JUL
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
+                                                        <div class="flex items-center gap-3">
+                                                                <h3 class="timeline-title font-headline-md text-headline-md">
+                                                                        Registration Closes</h3>
+                                                                <span class="timeline-badge"></span>
                                                         </div>
-                                                </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                                        Online preparation session for Workshop 1
-                                                </p>
-                                        </div>
-                                </div>
-
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
-                                        <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
-                                                <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Workshop 2</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
-                                                                <span
-                                                                        class="material-symbols-outlined text-[16px]">school</span>
-                                                                7TH AUG
-                                                        </div>
-                                                </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                                        Online preparation session for Workshop 2
-                                                </p>
-                                        </div>
-                                </div>
-
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
-                                        <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
-                                                <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Pitching 101</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
-                                                                <span
-                                                                        class="material-symbols-outlined text-[16px]">school</span>
-                                                                15TH AUG
-                                                        </div>
-                                                </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                                        Online preparation session for Pitching 101
-                                                </p>
-                                        </div>
-                                </div>
-
-
-                                <!-- Timeline Item 4 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
-                                        <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
-                                                <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Opening Ceremony &amp; Track Reveal</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
-                                                                <span
-                                                                        class="material-symbols-outlined text-[16px]">celebration</span>
-                                                                26TH AUG
-                                                        </div>
-                                                </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
-                                                        The online opening ceremony where the specific problem statement
-                                                        tracks are revealed to participants. The online hackathon
-                                                        development phase initiates. Mentorship is available throughout
-                                                        the hacking period, with specific timeslots for teams to choose.
-                                                </p>
-                                        </div>
-                                </div>
-
-                                <!-- Timeline Item 6 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
-                                        <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
-                                                <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Registration Closes</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                        <div class="timeline-date-chip font-label-mono text-label-mono flex items-center gap-2">
                                                                 <span
                                                                         class="material-symbols-outlined text-[16px]">event_busy</span>
-                                                                4TH SEPT
+                                                                25TH AUG
                                                         </div>
                                                 </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                <p class="font-body-md text-body-md text-on-surface-variant relative z-10">
                                                         The final deadline to register a team for the event.
                                                 </p>
-                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                <div class="timeline-schedule flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
                                                         <div
                                                                 class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
                                                                 <div class="w-24 sm:w-32 shrink-0">
@@ -314,39 +191,37 @@
                                         </div>
                                 </div>
 
-                                <!-- Timeline Item 8 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
+                                <!-- Timeline Item 4: Submission Deadline -->
+                                <div class="timeline-item relative mb-section-gap scroll-animate opacity-0"
+                                        data-date="2026-09-05" style="animation-duration: 2.5s;">
+                                        <!-- Node Container -->
+                                        <div class="timeline-node"></div>
                                         <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                        <div class="timeline-card">
                                                 <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Submission Deadline</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
+                                                        <div class="flex items-center gap-3">
+                                                                <h3 class="timeline-title font-headline-md text-headline-md">
+                                                                        Submission Deadline</h3>
+                                                                <span class="timeline-badge"></span>
+                                                        </div>
+                                                        <div class="timeline-date-chip font-label-mono text-label-mono flex items-center gap-2">
                                                                 <span
                                                                         class="material-symbols-outlined text-[16px]">lock_clock</span>
-                                                                12TH SEPT
+                                                                5TH SEPT
                                                         </div>
                                                 </div>
-                                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                                <p class="font-body-md text-body-md text-on-surface-variant relative z-10">
                                                         The deadline for all project deliverables, including the
                                                         pitch deck, GitHub repository link, and MVP video.
                                                 </p>
-                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                <div class="timeline-schedule flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
                                                         <div
                                                                 class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
                                                                 <div class="w-24 sm:w-32 shrink-0">
                                                                         <span
-                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">08:00
-                                                                                AM</span>
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">11:59
+                                                                                PM</span>
                                                                 </div>
                                                                 <div class="flex-1 min-w-0">
                                                                         <p
@@ -357,29 +232,41 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <!-- Timeline Item 9 -->
-                                <div class="relative mb-section-gap scroll-animate opacity-0"
-                                        style="animation-duration: 2.5s;">
-                                        <!-- Node -->
-                                        <div
-                                                class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-transparent"></div>
-                                        </div>
+
+                                <!-- Timeline Item 5: Demo Day & Grand Finale -->
+                                <div class="timeline-item relative mb-section-gap scroll-animate opacity-0"
+                                        data-date="2026-09-06" style="animation-duration: 2.5s;">
+                                        <!-- Node Container -->
+                                        <div class="timeline-node"></div>
                                         <!-- Content -->
-                                        <div
-                                                class="bg-surface-container-low/60 backdrop-blur-xl border border-white/10 rounded-xl p-6 md:p-8 hover:border-primary/30 hover:bg-surface-container/80 transition-all duration-300">
+                                        <div class="timeline-card">
                                                 <div
-                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                                        <h3 class="font-headline-md text-headline-md text-text-primary">
-                                                                Demo Day &amp; Grand Finale</h3>
-                                                        <div
-                                                                class="font-label-mono text-label-mono text-primary flex items-center gap-2">
+                                                        class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2 relative z-10">
+                                                        <div class="flex items-center gap-3">
+                                                                <h3 class="timeline-title font-headline-md text-headline-md">
+                                                                        Demo Day &amp; Grand Finale</h3>
+                                                                <span class="timeline-badge"></span>
+                                                        </div>
+                                                        <div class="timeline-date-chip font-label-mono text-label-mono flex items-center gap-2">
                                                                 <span
                                                                         class="material-symbols-outlined text-[16px]">trophy</span>
-                                                                12TH SEPT
+                                                                6TH SEPT
                                                         </div>
                                                 </div>
-                                                <div class="flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                <div class="timeline-schedule flex flex-col gap-1 mt-6 pt-4 border-t border-white/20">
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">08:00
+                                                                                AM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Registration Start</p>
+                                                                </div>
+                                                        </div>
                                                         <div
                                                                 class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
                                                                 <div class="w-24 sm:w-32 shrink-0">
@@ -390,24 +277,24 @@
                                                                 <div class="flex-1 min-w-0">
                                                                         <p
                                                                                 class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
-                                                                                Team Registration &amp; Breakfast</p>
-                                                                </div>
-                                                        </div>
-                                                        <div
-                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
-                                                                <div class="w-24 sm:w-32 shrink-0">
-                                                                        <span
-                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">10:00
-                                                                                AM - 01:00 PM</span>
-                                                                </div>
-                                                                <div class="flex-1 min-w-0">
-                                                                        <p
-                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
-                                                                                Last Polishing Session</p>
+                                                                                Opening Speech</p>
                                                                 </div>
                                                         </div>
                                                         <div
                                                                 class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">10:00
+                                                                                AM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Pitching Session 1</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
                                                                 <div class="w-24 sm:w-32 shrink-0">
                                                                         <span
                                                                                 class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">01:00
@@ -415,52 +302,25 @@
                                                                 </div>
                                                                 <div class="flex-1 min-w-0">
                                                                         <p
-                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
-                                                                                Submission for Pitching</p>
-                                                                </div>
-                                                        </div>
-                                                        <div
-                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
-                                                                <div class="w-24 sm:w-32 shrink-0">
-                                                                        <span
-                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">01:00
-                                                                                PM - 02:00 PM</span>
-                                                                </div>
-                                                                <div class="flex-1 min-w-0">
-                                                                        <p
                                                                                 class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
-                                                                                Lunch Time</p>
-                                                                </div>
-                                                        </div>
-                                                        <div
-                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
-                                                                <div class="w-24 sm:w-32 shrink-0">
-                                                                        <span
-                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">02:00
-                                                                                PM - 04:00 PM</span>
-                                                                </div>
-                                                                <div class="flex-1 min-w-0">
-                                                                        <p
-                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
-                                                                                First, Second &amp; Third Track Pitching
-                                                                        </p>
-                                                                </div>
-                                                        </div>
-                                                        <div
-                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
-                                                                <div class="w-24 sm:w-32 shrink-0">
-                                                                        <span
-                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">04:00
-                                                                                PM - 05:00 PM</span>
-                                                                </div>
-                                                                <div class="flex-1 min-w-0">
-                                                                        <p
-                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
-                                                                                Winner Finalize and Lunch</p>
+                                                                                Lunch</p>
                                                                 </div>
                                                         </div>
                                                         <div
                                                                 class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">02:00
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
+                                                                                Pitching Session 2</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
                                                                 <div class="w-24 sm:w-32 shrink-0">
                                                                         <span
                                                                                 class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">05:00
@@ -468,8 +328,34 @@
                                                                 </div>
                                                                 <div class="flex-1 min-w-0">
                                                                         <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Result Finalise</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06] bg-white/[0.04]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">05:30
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
                                                                                 class="font-label-mono text-xs sm:text-sm leading-snug font-bold text-primary">
-                                                                                Prize-Giving &amp; Closing Ceremony</p>
+                                                                                Closing Ceremony &amp; Winner Announcement</p>
+                                                                </div>
+                                                        </div>
+                                                        <div
+                                                                class="group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:bg-white/[0.06]">
+                                                                <div class="w-24 sm:w-32 shrink-0">
+                                                                        <span
+                                                                                class="font-label-mono text-xs sm:text-sm text-outline tabular-nums leading-snug block">06:00
+                                                                                PM</span>
+                                                                </div>
+                                                                <div class="flex-1 min-w-0">
+                                                                        <p
+                                                                                class="font-body-md text-xs sm:text-sm leading-snug text-on-surface-variant">
+                                                                                Event End</p>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -520,6 +406,290 @@
                 </div>
         </footer>
         <script src="../assets/global.js"></script>
+
+        <!-- Timeline Date-Based State Logic -->
+        <style>
+                /* ===== COMPLETED STATE (past dates) ===== */
+                .timeline-item[data-state="completed"] .timeline-node {
+                        position: absolute;
+                        left: -37px;
+                        top: 6px;
+                        width: 16px;
+                        height: 16px;
+                        z-index: 10;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="completed"] .timeline-node {
+                                left: -53px;
+                        }
+                }
+                .timeline-item[data-state="completed"] .timeline-node::before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        background: #22c55e;
+                        box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+                }
+                .timeline-item[data-state="completed"] .timeline-node::after {
+                        content: '✓';
+                        position: absolute;
+                        font-size: 10px;
+                        font-weight: 900;
+                        color: #0a0a0f;
+                        line-height: 1;
+                }
+                .timeline-item[data-state="completed"] .timeline-card {
+                        background: rgba(var(--surface-container-low-rgb, 30, 30, 45), 0.4);
+                        backdrop-filter: blur(16px);
+                        border: 1px solid rgba(34, 197, 94, 0.2);
+                        border-radius: 12px;
+                        padding: 24px;
+                        position: relative;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="completed"] .timeline-card {
+                                padding: 32px;
+                        }
+                }
+                .timeline-item[data-state="completed"] .timeline-card:hover {
+                        border-color: rgba(34, 197, 94, 0.35);
+                }
+                .timeline-item[data-state="completed"] .timeline-title {
+                        color: rgba(255, 255, 255, 0.6);
+                }
+                .timeline-item[data-state="completed"] .timeline-badge {
+                        display: inline-block;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        background: rgba(34, 197, 94, 0.15);
+                        color: #22c55e;
+                        border: 1px solid rgba(34, 197, 94, 0.3);
+                }
+                .timeline-item[data-state="completed"] .timeline-badge::before {
+                        content: 'COMPLETED';
+                }
+                .timeline-item[data-state="completed"] .timeline-date-chip {
+                        color: rgba(34, 197, 94, 0.7);
+                }
+                .timeline-item[data-state="completed"] .timeline-card p.text-on-surface-variant {
+                        opacity: 0.5;
+                }
+                .timeline-item[data-state="completed"] .timeline-schedule {
+                        opacity: 0.4;
+                }
+
+                /* ===== ACTIVE STATE (today's date) ===== */
+                .timeline-item[data-state="active"] .timeline-node {
+                        position: absolute;
+                        left: -41px;
+                        top: 4px;
+                        width: 24px;
+                        height: 24px;
+                        z-index: 10;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="active"] .timeline-node {
+                                left: -57px;
+                        }
+                }
+                .timeline-item[data-state="active"] .timeline-node::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        border-radius: 50%;
+                        border: 2px solid #4cd7f6;
+                        animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                }
+                .timeline-item[data-state="active"] .timeline-node::after {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: #4cd7f6;
+                        box-shadow: 0 0 10px #4cd7f6, 0 0 20px rgba(76, 215, 246, 0.3);
+                }
+                @keyframes pulse-ring {
+                        0%, 100% { opacity: 1; transform: scale(1); }
+                        50% { opacity: 0.5; transform: scale(1.3); }
+                }
+                .timeline-item[data-state="active"] .timeline-card {
+                        background: rgba(var(--surface-container-rgb, 35, 35, 55), 0.8);
+                        backdrop-filter: blur(40px);
+                        border: 1px solid rgba(76, 215, 246, 0.3);
+                        border-radius: 12px;
+                        padding: 24px;
+                        box-shadow: 0 4px 30px rgba(76, 215, 246, 0.08), 0 0 60px rgba(76, 215, 246, 0.03);
+                        position: relative;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="active"] .timeline-card {
+                                padding: 32px;
+                        }
+                }
+                /* Subtle glow overlay for active card */
+                .timeline-item[data-state="active"] .timeline-card::before {
+                        content: '';
+                        position: absolute;
+                        right: -80px;
+                        top: -80px;
+                        width: 160px;
+                        height: 160px;
+                        background: rgba(76, 215, 246, 0.1);
+                        border-radius: 50%;
+                        filter: blur(50px);
+                        pointer-events: none;
+                }
+                .timeline-item[data-state="active"] .timeline-title {
+                        color: var(--text-primary, #fff);
+                        transition: color 0.3s;
+                }
+                .timeline-item[data-state="active"] .timeline-card:hover .timeline-title {
+                        color: #4cd7f6;
+                }
+                .timeline-item[data-state="active"] .timeline-badge {
+                        display: inline-block;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        background: rgba(76, 215, 246, 0.2);
+                        color: #4cd7f6;
+                        border: 1px solid rgba(76, 215, 246, 0.3);
+                        animation: badge-glow 2s ease-in-out infinite;
+                }
+                @keyframes badge-glow {
+                        0%, 100% { box-shadow: 0 0 4px rgba(76, 215, 246, 0.2); }
+                        50% { box-shadow: 0 0 12px rgba(76, 215, 246, 0.4); }
+                }
+                .timeline-item[data-state="active"] .timeline-badge::before {
+                        content: 'TODAY';
+                }
+                .timeline-item[data-state="active"] .timeline-date-chip {
+                        color: #4cd7f6;
+                        background: rgba(76, 215, 246, 0.1);
+                        padding: 4px 12px;
+                        border-radius: 6px;
+                        border: 1px solid rgba(76, 215, 246, 0.2);
+                }
+
+                /* ===== INACTIVE STATE (future dates) ===== */
+                .timeline-item[data-state="inactive"] .timeline-node {
+                        position: absolute;
+                        left: -37px;
+                        top: 6px;
+                        width: 16px;
+                        height: 16px;
+                        z-index: 10;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="inactive"] .timeline-node {
+                                left: -53px;
+                        }
+                }
+                .timeline-item[data-state="inactive"] .timeline-node::before {
+                        content: '';
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        background: rgba(var(--surface-rgb, 20, 20, 35), 1);
+                        border: 2px solid rgba(255, 255, 255, 0.15);
+                }
+                .timeline-item[data-state="inactive"] .timeline-card {
+                        background: rgba(var(--surface-container-low-rgb, 30, 30, 45), 0.3);
+                        backdrop-filter: blur(8px);
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                        border-radius: 12px;
+                        padding: 24px;
+                        position: relative;
+                        overflow: hidden;
+                        opacity: 0.45;
+                        transition: all 0.3s ease;
+                        filter: saturate(0.3);
+                }
+                @media (min-width: 768px) {
+                        .timeline-item[data-state="inactive"] .timeline-card {
+                                padding: 32px;
+                        }
+                }
+                .timeline-item[data-state="inactive"] .timeline-card:hover {
+                        opacity: 0.6;
+                        border-color: rgba(255, 255, 255, 0.1);
+                        filter: saturate(0.5);
+                }
+                .timeline-item[data-state="inactive"] .timeline-title {
+                        color: rgba(255, 255, 255, 0.35);
+                }
+                .timeline-item[data-state="inactive"] .timeline-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 4px;
+                        padding: 2px 8px;
+                        border-radius: 4px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 0.1em;
+                        text-transform: uppercase;
+                        background: rgba(255, 255, 255, 0.05);
+                        color: rgba(255, 255, 255, 0.3);
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                }
+                .timeline-item[data-state="inactive"] .timeline-badge::before {
+                        content: 'UPCOMING';
+                }
+                .timeline-item[data-state="inactive"] .timeline-date-chip {
+                        color: rgba(255, 255, 255, 0.25);
+                }
+                .timeline-item[data-state="inactive"] .timeline-card p.text-on-surface-variant {
+                        color: rgba(255, 255, 255, 0.2) !important;
+                }
+                .timeline-item[data-state="inactive"] .timeline-schedule {
+                        display: none;
+                }
+        </style>
+
+        <script>
+                (function() {
+                        // Get today's date string in YYYY-MM-DD format (local timezone)
+                        const now = new Date();
+                        const todayStr = now.getFullYear() + '-' +
+                                String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                                String(now.getDate()).padStart(2, '0');
+
+                        const items = document.querySelectorAll('.timeline-item[data-date]');
+
+                        items.forEach(function(item) {
+                                const itemDate = item.getAttribute('data-date'); // "YYYY-MM-DD"
+
+                                if (itemDate < todayStr) {
+                                        item.setAttribute('data-state', 'completed');
+                                } else if (itemDate === todayStr) {
+                                        item.setAttribute('data-state', 'active');
+                                } else {
+                                        item.setAttribute('data-state', 'inactive');
+                                }
+                        });
+                })();
+        </script>
 </body>
 
 </html>
