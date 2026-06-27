@@ -3284,3 +3284,18 @@ body {
     padding: 3rem;
   }
 }
+
+/* Offset for fixed navbar so anchor jumps and section h1s clear the nav */
+html { scroll-padding-top: 220px; }
+section[id], main > h1, main > section > h1 { scroll-margin-top: 220px; }
+@media (min-width: 768px) {
+  html { scroll-padding-top: 120px; }
+  section[id], main > h1, main > section > h1 { scroll-margin-top: 120px; }
+}
+
+/* Navbar brand: short text by default, full brand at 2xl+ to avoid crowding the nav */
+@media (min-width: 1536px) {
+  .lg\:hidden { display: none; }
+  .lg\:inline { display: inline; }
+}
+

@@ -660,8 +660,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = Array.from(document.querySelectorAll('a, button')).filter(el => el.textContent.trim() === 'Register with Devfolio');
     
     buttons.forEach(btn => {
-        // Apply Devfolio-like styling
-        btn.className = 'mt-2 inline-flex items-center justify-center font-bold text-white px-8 py-3 rounded-full active:scale-95 transition-all duration-300 w-full sm:w-auto max-w-[280px]';
+        // Preserve responsive visibility utilities from the original markup so that
+        // the navbar CTA (hidden md:block) doesn't suddenly appear on mobile, etc.
+        const orig = btn.className.split(/\s+/);
+        const hasHidden = orig.includes('hidden');
+        const respVis = orig.filter(c => /^(sm|md|lg|xl|2xl):(hidden|block|inline-block|flex|inline-flex)$/.test(c));
+
+        const styling = ['mt-2', 'items-center', 'justify-center', 'font-bold', 'text-white', 'px-8', 'py-3', 'rounded-full', 'active:scale-95', 'transition-all', 'duration-300', 'max-w-[280px]'];
+
+        if (hasHidden) {
+            btn.className = ['hidden', ...respVis, ...styling, 'w-auto'].join(' ');
+        } else {
+            btn.className = ['inline-flex', 'w-full', 'sm:w-auto', ...respVis, ...styling].join(' ');
+        }
         btn.style.background = 'linear-gradient(90deg, #10B981 0%, #39FF14 100%)';
         btn.style.boxShadow = 'none';
 

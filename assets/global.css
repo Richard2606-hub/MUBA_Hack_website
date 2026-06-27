@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html { scroll-padding-top: 220px; }
+section[id], main > h1 { scroll-margin-top: 220px; }
+
 @layer utilities {
     .glass-card {
         @apply bg-bg-surface/70 backdrop-blur-[16px] border border-white/5;
