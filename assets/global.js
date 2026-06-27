@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const symbols = ['{ }', '</ >', '0101', 'AI', 'WEB3', 'λ', '=>', '0x', 'NODE', 'ETH', '</>', '[ ]', '++', 'async', 'await', 'API', 'REACT', 'VUE', 'RUST', 'GO', 'ML', 'DATA', '0', '1', '()', '///', '/**/', '&&', '||', '!=', '0x1A'];
         const colors = ['rgba(167, 139, 250, 0.4)', 'rgba(76, 215, 246, 0.4)', 'rgba(210, 187, 255, 0.3)', 'rgba(244, 114, 182, 0.4)', 'rgba(52, 211, 153, 0.3)'];
 
-        // Fix 1: Drastically reduce element count on mobile to prevent GPU saturation
-        const numElements = isMobile ? 15 : 65;
-        const numOrbs = isMobile ? 2 : 5;
+        // Fix 1: Drastically reduce element count to prevent GPU and CPU saturation
+        const numElements = isMobile ? 15 : 20;
+        const numOrbs = isMobile ? 2 : 4;
 
         const parallaxWrappers = [];
         // Store all infinite tweens so we can pause/resume them (Fix 3)
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: document.body,
                 start: "top top",
                 end: "bottom top",
-                scrub: 1.5
+                scrub: true
             }
         });
 
@@ -197,32 +197,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             });
         }
-
+        
         // Fix 4: Skip mouse parallax entirely on touch devices — no cursor to follow
         if (!isMobile) {
             // Setup gsap.quickTo for highly optimized mouse movement
             const cursorXTo = gsap.quickTo(cursorGlow, "x", {duration: 0.6, ease: "power2.out"});
             const cursorYTo = gsap.quickTo(cursorGlow, "y", {duration: 0.6, ease: "power2.out"});
             const cursorOpacityTo = gsap.quickTo(cursorGlow, "opacity", {duration: 0.6, ease: "power2.out"});
-            
-            const parallaxXSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "x", {duration: 2, ease: "power2.out"}));
-            const parallaxYSetters = parallaxWrappers.map(item => gsap.quickTo(item.node, "y", {duration: 2, ease: "power2.out"}));
 
             window.addEventListener('mousemove', (e) => {
                 // Update Spotlight
                 cursorXTo(e.clientX);
                 cursorYTo(e.clientY);
                 cursorOpacityTo(1);
-
-                const mouseX = (e.clientX / window.innerWidth) - 0.5;
-                const mouseY = (e.clientY / window.innerHeight) - 0.5;
-
-                // Parallax Shift using quickTo setters
-                parallaxWrappers.forEach((item, index) => {
-                    parallaxXSetters[index](mouseX * 150 * item.speed);
-                    parallaxYSetters[index](mouseY * 150 * item.speed);
-                });
             });
+        }
             
             // Hide spotlight when mouse leaves the window
             document.body.addEventListener('mouseleave', () => {
