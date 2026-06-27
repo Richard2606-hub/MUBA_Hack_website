@@ -651,3 +651,41 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateTimelineGlow, 60000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const registrationStartDate = new Date('2026-06-30T00:00:00+08:00');
+    const currentDate = new Date();
+    
+    // Find all links and buttons that say 'Register with Devfolio'
+    const buttons = Array.from(document.querySelectorAll('a, button')).filter(el => el.textContent.trim() === 'Register with Devfolio');
+    
+    buttons.forEach(btn => {
+        // Apply Devfolio-like styling
+        btn.className = 'mt-2 inline-flex items-center justify-center font-bold text-white px-8 py-3 rounded-full active:scale-95 transition-all duration-300 w-full sm:w-auto max-w-[280px]';
+        btn.style.background = 'linear-gradient(90deg, #10B981 0%, #39FF14 100%)';
+        btn.style.boxShadow = 'none';
+
+        if (currentDate < registrationStartDate) {
+            btn.textContent = 'Opens on 30 June';
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+            btn.style.pointerEvents = 'none';
+            if(btn.tagName === 'A') btn.removeAttribute('href');
+        } else {
+            btn.textContent = 'Register with Devfolio';
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            btn.style.pointerEvents = 'auto';
+            if(btn.tagName === 'A' && !btn.getAttribute('href')) btn.setAttribute('href', '#');
+            
+            // Add hover glow for active state
+            btn.addEventListener('mouseenter', () => {
+                btn.style.boxShadow = '0 0 20px rgba(57, 255, 20, 0.4)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.boxShadow = 'none';
+            });
+        }
+    });
+});
+
