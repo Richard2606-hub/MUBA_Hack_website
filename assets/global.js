@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 left: `${Math.random() * 100}vw`,
                 top: `${Math.random() * 100}vh`,
                 // Fix 2: Promote to compositor layer for GPU-only compositing
-                willChange: 'transform',
+                
             });
             bgContainer.appendChild(wrapper);
 
@@ -125,14 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
-                force3D: true  // Fix 2: Force GPU compositing
+                force3D: false  // Fix 2: Force GPU compositing
             });
             infiniteTweens.push(floatTween);
 
             globalParallaxTl.to(wrapper, {
                 yPercent: - (Math.random() * 400 + 150),
                 ease: "none",
-                force3D: true
+                force3D: false
             }, 0);
         }
 
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 position: 'absolute',
                 left: `${Math.random() * 100}vw`,
                 top: `${Math.random() * 100}vh`,
-                willChange: 'transform',
+                
             });
             bgContainer.appendChild(wrapper);
 
@@ -170,14 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
-                force3D: true
+                force3D: false
             });
             infiniteTweens.push(orbTween);
 
             globalParallaxTl.to(wrapper, {
                 yPercent: - (Math.random() * 200 + 50),
                 ease: "none",
-                force3D: true
+                force3D: false
             }, 0);
         }
 
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             y: -100,
             duration: 1,
             ease: "power2.in",
-            force3D: true,  // Fix 2: Force GPU compositing
+            force3D: false,  // Fix 2: Force GPU compositing
             onUpdate: function() {
                 if (heroH1) {
                     const progress = this.progress();
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: 0,
                 duration: 1,
                 ease: "power3.in",
-                force3D: true
+                force3D: false
             }, 0);
         });
     }

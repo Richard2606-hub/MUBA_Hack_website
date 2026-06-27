@@ -65,7 +65,7 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 9999;
-    mix-blend-mode: overlay;
+    /* mix-blend-mode removed for mobile performance */
 }
 
 /* Fix 10: On mobile, remove mix-blend-mode: overlay — it forces the browser to
@@ -141,19 +141,19 @@ body {
 .void-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    /* filter removed, using radial gradients instead */
     z-index: 0;
     pointer-events: none;
     opacity: 0.4;
     /* Fix 9: Promote to GPU layer for smoother compositing */
-    will-change: transform;
+    /* will-change removed to save compositor memory */
     transform: translateZ(0);
 }
 
 /* Fix 9: Reduce blur radius on mobile — 120px kernel is extremely expensive on mobile GPUs */
 @media (max-width: 768px) {
     .void-orb {
-        filter: blur(60px);
+        /* filter removed */
         opacity: 0.3;
     }
 }
