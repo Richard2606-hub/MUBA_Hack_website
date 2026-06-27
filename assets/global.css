@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer utilities {
     .glass-card {
         @apply bg-bg-surface/70 backdrop-blur-[16px] border border-white/5;
@@ -8,11 +12,11 @@
     .glass-card:hover {
         @apply bg-bg-surface/90 border-white/20;
         transform: translateY(-5px);
-        box-shadow: 0 10px 40px rgba(210, 187, 255, 0.1);
+        box-shadow: 0 10px 40px rgba(57, 255, 20, 0.15);
     }
 
     .text-gradient-primary {
-        background: linear-gradient(to right, #d2bbff, #4cd7f6);
+        background: linear-gradient(to right, #39FF14, #10B981);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -34,11 +38,11 @@
 
 /* Atmospheric Void Background (Default) */
 body {
-    background-color: #0b0e13; /* Default body background */
+    background-color: #040b06; /* Default body background */
     color: #F8FAFC;
     background-image:
-        radial-gradient(circle at 15% 50%, rgba(210, 187, 255, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 85% 30%, rgba(76, 215, 246, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 15% 50%, rgba(57, 255, 20, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
 }
 
@@ -123,14 +127,14 @@ body {
 /* Timeline Custom Animations */
 @keyframes pulse-ring {
     0% { transform: scale(0.8); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 0.8; box-shadow: 0 0 20px #4cd7f6, 0 0 40px #4cd7f6; }
+    50% { transform: scale(1.2); opacity: 0.8; box-shadow: 0 0 20px #39FF14, 0 0 40px #39FF14; }
     100% { transform: scale(0.8); opacity: 0.5; }
 }
 .animate-pulse-ring {
     animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .timeline-line-glow {
-    box-shadow: 0 0 15px rgba(210, 187, 255, 0.4);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
 }
 
 /* Landing Page Floats & Orbs */
