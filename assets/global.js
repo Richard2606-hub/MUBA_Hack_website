@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: heroSection,
                 start: "top top",
                 end: "+=150%",
-                pin: true,
+                pin: !isMobile,
                 scrub: isMobile ? 2 : 1,  // Smoother scrub on mobile (more lerp)
                 // Fix 5: Prevent GSAP from using anticipatePin on mobile (can cause flicker)
                 anticipatePin: isMobile ? 0 : 1,
