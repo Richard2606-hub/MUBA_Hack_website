@@ -963,6 +963,10 @@ video {
   width: 700px;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -1195,6 +1199,10 @@ video {
 
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded {
@@ -2458,6 +2466,14 @@ video {
   box-shadow: 0 0 25px currentColor;
 }
 
+html {
+  scroll-padding-top: 220px;
+}
+
+section[id], main > h1 {
+  scroll-margin-top: 220px;
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
@@ -2495,7 +2511,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  mix-blend-mode: overlay;
+  /* mix-blend-mode removed for mobile performance */
 }
 
 /* Fix 10: On mobile, remove mix-blend-mode: overlay — it forces the browser to
@@ -2595,12 +2611,12 @@ body {
 .void-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  /* filter removed, using radial gradients instead */
   z-index: 0;
   pointer-events: none;
   opacity: 0.4;
   /* Fix 9: Promote to GPU layer for smoother compositing */
-  will-change: transform;
+  /* will-change removed to save compositor memory */
   transform: translateZ(0);
 }
 
@@ -2608,7 +2624,7 @@ body {
 
 @media (max-width: 768px) {
   .void-orb {
-    filter: blur(60px);
+    /* filter removed */
     opacity: 0.3;
   }
 }
@@ -3272,6 +3288,14 @@ body {
     grid-column: span 2 / span 2;
   }
 
+  .lg\:inline {
+    display: inline;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3284,18 +3308,3 @@ body {
     padding: 3rem;
   }
 }
-
-/* Offset for fixed navbar so anchor jumps and section h1s clear the nav */
-html { scroll-padding-top: 220px; }
-section[id], main > h1, main > section > h1 { scroll-margin-top: 220px; }
-@media (min-width: 768px) {
-  html { scroll-padding-top: 120px; }
-  section[id], main > h1, main > section > h1 { scroll-margin-top: 120px; }
-}
-
-/* Navbar brand: short text by default, full brand at 2xl+ to avoid crowding the nav */
-@media (min-width: 1536px) {
-  .lg\:hidden { display: none; }
-  .lg\:inline { display: inline; }
-}
-
