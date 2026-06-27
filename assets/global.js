@@ -238,18 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!heroSection || !heroContent) return;
 
-        // Fix 6: Prevent iOS Safari overscroll bounce during pinned section
-        if (isMobile) {
-            document.documentElement.style.overscrollBehavior = 'none';
-        }
-
         const heroTl = gsap.timeline({
             scrollTrigger: {
                 trigger: heroSection,
                 start: "top top",
-                end: "+=150%",
+                end: "+=100%",
                 pin: !isMobile,
-                scrub: isMobile ? 2 : 1,  // Smoother scrub on mobile (more lerp)
+                scrub: true,  // Remove lerp lag for immediate scroll response
                 // Fix 5: Prevent GSAP from using anticipatePin on mobile (can cause flicker)
                 anticipatePin: isMobile ? 0 : 1,
             }
