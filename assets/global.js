@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursorYTo(e.clientY);
                 cursorOpacityTo(1);
             });
-        }
             
             // Hide spotlight when mouse leaves the window
             document.body.addEventListener('mouseleave', () => {
