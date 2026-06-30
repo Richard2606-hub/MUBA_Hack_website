@@ -675,6 +675,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('mouseleave', () => {
                 btn.style.boxShadow = 'none';
             });
+            
+            // Redirect to Devfolio
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('https://muba-hackathon.devfolio.co/', '_blank');
+            });
         }
     });
 });
