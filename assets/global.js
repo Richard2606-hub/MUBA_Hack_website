@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerTitleEl = document.getElementById("timer-title");
     if (daysEl) {
         const registrationStartDate = new Date("Jun 30, 2026 00:00:00").getTime();
-        const registrationCloseDate = new Date("Aug 1, 2026 23:59:59").getTime();
+        const registrationCloseDate = new Date("Aug 25, 2026 23:59:59").getTime();
         const countdownInterval = setInterval(function () {
             const now = new Date().getTime();
             let distance;
