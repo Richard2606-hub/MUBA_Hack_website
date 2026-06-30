@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (document.getElementById('stat-0')) {
                             setTimeout(() => {
-                                animateValue(document.getElementById('stat-0'), 0, 18, 2000, '', ' Days');
+                                animateValue(document.getElementById('stat-0'), 0, 11, 2000, '', ' Days');
                                 animateValue(document.getElementById('stat-1'), 0, 500, 2000, '300-', '');
                                 animateValue(document.getElementById('stat-2'), 0, 15, 2000, '', '+');
                                 animateValue(document.getElementById('stat-3'), 0, 100, 2000, '', '%');
