@@ -230,11 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
                 trigger: heroSection,
                 start: "top top",
-                end: "+=100%",
-                pin: !isMobile,
-                scrub: true,  // Remove lerp lag for immediate scroll response
-                // Fix 5: Prevent GSAP from using anticipatePin on mobile (can cause flicker)
-                anticipatePin: isMobile ? 0 : 1,
+                end: "bottom top",
+                scrub: true
             }
         });
 
@@ -247,9 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let lastScrambleTime = 0;
         
         heroTl.to(heroContent, {
-            scale: 1.5,
             opacity: 0,
-            y: -100,
+            y: -50,
             duration: 1,
             ease: "power2.in",
             force3D: false,  // Fix 2: Force GPU compositing
