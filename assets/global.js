@@ -685,3 +685,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ─── Load Froggie Mascot Pet ───
+(function() {
+    var fs = document.createElement('script');
+    var globalSrc = document.querySelector('script[src*="global.js"]');
+    fs.src = (globalSrc ? globalSrc.src.replace('global.js', '') : '../assets/') + 'froggie.js';
+    fs.defer = true;
+    document.body.appendChild(fs);
+})();
