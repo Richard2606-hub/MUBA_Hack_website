@@ -295,42 +295,47 @@
             </div>
         </div>
     </footer>
-
-    <!-- First-Visit Eligibility Popup Modal -->
-    <div id="eligibility-modal" class="fixed inset-0 z-[99999] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-xl transition-opacity duration-300">
-        <div class="bg-[#0b0813] max-w-md w-full p-6 md:p-8 rounded-2xl border border-secondary/40 shadow-[0_0_60px_rgba(76,215,246,0.3)] relative text-center flex flex-col items-center gap-4 animate-fade-in-up">
-            <div class="w-14 h-14 rounded-full bg-secondary/10 border border-secondary/30 flex items-center justify-center text-3xl text-secondary shadow-[0_0_15px_rgba(76,215,246,0.3)]">
-                🇲🇾
+    <!-- First-Visit Eligibility Reminder Banner -->
+    <div id="eligibility-banner"
+        style="display:none; position:fixed; top:0; left:0; right:0; z-index:999999; pointer-events:auto; transform:translateY(-100%); transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);">
+        <div style="background:#0b0f0d; border-bottom:1px solid rgba(76,215,246,0.3); box-shadow:0 4px 30px rgba(0,0,0,0.5), 0 0 20px rgba(76,215,246,0.1); padding:12px 20px;">
+            <div style="max-width:900px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
+                <span style="font-size:20px; flex-shrink:0;">🇲🇾</span>
+                <p style="margin:0; font-size:13px; color:#cbd5e1; font-family:'JetBrains Mono','monospace'; line-height:1.4;">
+                    <strong style="color:#39FF14; text-transform:uppercase; letter-spacing:1px; font-size:11px;">Eligibility Notice</strong><br>
+                    Open to <strong style="color:#F8FAFC;">Malaysian citizens</strong> &amp; <strong style="color:#F8FAFC;">visa holders residing in Malaysia</strong> only.
+                </p>
+                <button id="close-eligibility-banner"
+                    style="flex-shrink:0; background:linear-gradient(to right,#39FF14,#10B981); color:#040b06; border:none; font-family:'JetBrains Mono','monospace'; font-size:11px; font-weight:700; padding:8px 18px; border-radius:8px; cursor:pointer; text-transform:uppercase; letter-spacing:1px; transition:transform 0.2s, box-shadow 0.2s;"
+                    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px rgba(57,255,20,0.5)';"
+                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                    Got it ✓
+                </button>
             </div>
-            <h3 class="font-headline-md text-xl md:text-2xl text-gradient font-bold">Eligibility Notice</h3>
-            <p class="font-body-md text-text-primary leading-relaxed text-sm">
-                MUBA Blockchain Hackathon 2026 is currently open exclusively to <strong class="text-secondary font-semibold">Malaysian citizens</strong> and <strong class="text-secondary font-semibold">visa holders currently residing in Malaysia</strong>.
-            </p>
-            <p class="text-xs text-text-secondary italic">
-                We appreciate your understanding as we work toward expanding this hackathon to a wider international community in future editions!
-            </p>
-            <button id="close-eligibility-modal" class="mt-2 w-full bg-gradient-to-r from-accent-glow-violet to-accent-glow-cyan text-surface-lowest font-label-mono font-bold py-3.5 px-6 rounded-xl hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] hover:scale-[1.02] active:scale-95 transition-all duration-300">
-                I Understand & Continue
-            </button>
         </div>
     </div>
 
     <script src="../assets/global.js"></script>
     <script>
         (function() {
-            const modal = document.getElementById('eligibility-modal');
-            const closeBtn = document.getElementById('close-eligibility-modal');
+            var banner = document.getElementById('eligibility-banner');
+            var closeBtn = document.getElementById('close-eligibility-banner');
 
-            if (modal && !localStorage.getItem('muba_eligibility_seen')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
+            if (banner && !localStorage.getItem('muba_eligibility_seen')) {
+                banner.style.display = 'block';
+                // Trigger slide-down after a brief delay so the transition plays
+                setTimeout(function() {
+                    banner.style.transform = 'translateY(0)';
+                }, 300);
             }
 
-            if (closeBtn && modal) {
+            if (closeBtn && banner) {
                 closeBtn.addEventListener('click', function() {
                     localStorage.setItem('muba_eligibility_seen', 'true');
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
+                    banner.style.transform = 'translateY(-100%)';
+                    setTimeout(function() {
+                        banner.style.display = 'none';
+                    }, 500);
                 });
             }
         })();
