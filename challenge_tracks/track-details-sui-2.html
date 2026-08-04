@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sui Track 2 Details | MUBA Blockchain Hackathon 2026</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logos/muba-logo-accent.png" />
+    <link rel="shortcut icon" type="image/png" href="../assets/logos/muba-logo-accent.png" />
+    <link rel="apple-touch-icon" href="../assets/logos/muba-logo-accent.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Orbitron:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/tailwind-compiled.css" />
+</head>
+<body class="antialiased min-h-screen flex flex-col relative bg-surface-container-lowest text-text-primary">
+    <div class="noise-overlay"></div>
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-[-1]"></div>
+
+    <!-- TopNavBar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-bg-surface/70 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(167,139,250,0.1)] transition-all duration-300">
+        <div class="flex justify-between items-center px-container-padding py-4 w-full mx-auto">
+            <a class="font-headline-md text-headline-md font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary whitespace-nowrap shrink-0"
+                href="../official_landing_page/code.html"><img src="../assets/logos/muba-logo-accent.png" alt="MUBA Logo" style="height: 48px; width: auto;"></a>
+            <div class="hidden md:flex items-center gap-4">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../official_landing_page/code.html">Home</a>
+                <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300 hover:scale-95 rounded-md"
+                    href="../challenge_tracks/code.html">Tracks</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../event_timeline/code.html">Timeline</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../sponsors/code.html">Sponsors &amp; Partners</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../judges_n_mentors/code.html">Judges & Mentors</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../getting_here/code.html">Venue</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
+                    href="../frequently_asked_questions/code.html">FAQ</a>
+            </div>
+            <button
+                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
+                Register with Devfolio
+            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex-col items-center py-6 gap-4 shadow-xl">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../official_landing_page/code.html">Home</a>
+            <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+                href="../challenge_tracks/code.html">Tracks</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../event_timeline/code.html">Timeline</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../sponsors/code.html">Sponsors &amp; Partners</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../judges_n_mentors/code.html">Judges & Mentors</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../getting_here/code.html">Venue</a>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+                href="../frequently_asked_questions/code.html">FAQ</a>
+            <button
+                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register with Devfolio</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-full max-w-4xl mx-auto pt-32 pb-section-gap px-container-padding z-10 flex flex-col gap-8">
+        <div>
+            <a href="code.html" class="inline-flex items-center gap-2 font-label-mono text-xs text-primary hover:underline transition-all bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                Back to Tracks
+            </a>
+        </div>
+        
+        <div class="glass-card rounded-2xl p-8 md:p-12 border border-primary/20 text-center min-h-[400px] flex flex-col justify-center items-center">
+            <h1 class="font-headline-lg text-4xl font-bold mb-6 text-gradient">Sui Track 2 Details</h1>
+            <p class="font-body-lg text-xl text-text-secondary">Details will reveal soon.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full relative z-50 bottom-0 bg-surface-container-lowest border-t border-white/10">
+        <div class="flex flex-col md:flex-row justify-between items-center p-stack-lg gap-stack-md max-w-7xl mx-auto">
+            <div class="font-label-caps text-label-caps text-on-surface">
+                &copy; MUBA Blockchain Hackathon 2026 &middot; MALAYSIA UNIVERSITY BLOCKCHAIN ASSOCIATION
+            </div>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.instagram.com/muba_hack_/" target="_blank" rel="noopener noreferrer"
+                    class="inline-block p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://x.com/muba_hack_" target="_blank" rel="noopener noreferrer"
+                    class="inline-block p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">X</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://linktr.ee/malaysiauniversityblockchainas" target="_blank" rel="noopener noreferrer"
+                    class="inline-block p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Linktree</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor">
+                        <path
+                            d="M13.682 6.002l4.05-4.248 2.235 2.13-6.4 6.716h10.433v3.197h-10.433l6.4 6.716-2.235 2.13-4.05-4.248-2.636-2.763-2.636 2.763-4.05 4.248-2.235-2.13 6.4-6.716h-10.433v-3.197h10.433l-6.4-6.716 2.235-2.13 4.05 4.248 2.636 2.763 2.636-2.763z" />
+                    </svg>
+                </a>
+                <a href="https://discord.gg/2WrGAwpWVW" target="_blank" rel="noopener noreferrer" id="discord-footer-link"
+                    class="inline-block p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-110 transform duration-300">
+                    <span class="sr-only">Discord</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/global.js"></script>
+</body>
+</html>
