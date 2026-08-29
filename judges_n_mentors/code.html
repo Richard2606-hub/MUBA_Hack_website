@@ -92,29 +92,184 @@
             class="void-orb bg-primary-container w-[700px] h-[700px] bottom-[-20%] left-[20%] animate-float-3 opacity-10">
         </div>
 
-        <section id="mentors" class="py-12 md:py-24 space-y-8 md:space-y-12 max-w-5xl mx-auto z-10 relative reveal">
-            <header class="text-center flex flex-col items-center gap-stack-md mb-8 md:mb-12">
+        <section id="mentors" class="py-12 md:py-20 space-y-12 max-w-6xl mx-auto z-10 relative reveal">
+            <header class="text-center flex flex-col items-center gap-stack-md mb-6 md:mb-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-mono text-xs uppercase tracking-widest opacity-0 animate-slide-up" style="animation-delay: 0.05s;">
+                    <span class="material-symbols-outlined text-sm">verified_user</span>
+                    <span>Official Evaluation Panel</span>
+                </div>
                 <h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-gradient-primary uppercase tracking-tighter opacity-0 animate-slide-up"
                     style="animation-delay: 0.1s;">JUDGES & MENTORS</h1>
                 <p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-text-secondary max-w-2xl mx-auto opacity-0 animate-slide-up"
                     style="animation-delay: 0.2s;">
-                    Meet the industry experts and veterans who will be guiding and evaluating your builds.
+                    Meet the industry leaders, engineers, and ecosystem representatives guiding your builds and evaluating project submissions.
                 </p>
             </header>
 
-            <div class="space-y-8 md:space-y-10">
-                <!-- Reveal Soon Card -->
-                <div class="glass-card w-full max-w-lg mx-auto flex flex-col items-center justify-center p-12 rounded-3xl overflow-hidden hover-glow bg-surface-container-low/50 border-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(167,139,250,0.15)] hover:border-primary/30 group opacity-0 animate-slide-up"
-                    style="animation-delay: 0.3s;">
-                    <div class="mb-4">
-                        <span class="material-symbols-outlined text-5xl text-primary/70">visibility_lock</span>
+            <!-- Judges & Mentors Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                <!-- Raphael (Sui) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.1s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent-glow-cyan to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary/40 shadow-[0_0_20px_rgba(167,139,250,0.3)] group-hover:border-primary group-hover:shadow-[0_0_25px_rgba(167,139,250,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/raphael.jpg" alt="Raphael" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-primary-container text-white p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">code</span>
+                        </span>
                     </div>
-                    <h3 class="font-headline-md text-3xl text-text-primary text-center italic opacity-80 mb-2">Reveal Soon</h3>
-                    <p class="font-body-md text-text-secondary text-center max-w-sm">
-                        Our panel of esteemed judges and mentors will be unveiled shortly. Stay tuned!
-                    </p>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-primary/10 text-primary border border-primary/30 mb-3">
+                        Sui Track Mentor &amp; Judge
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-primary transition-colors">RAPHAEL</h3>
+                    <p class="font-label-mono text-xs text-accent-glow-cyan mt-1 font-bold tracking-wide uppercase">SOLUTION ENGINEER</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Mysten Labs · Sui Ecosystem</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/sui-logo.png" alt="Sui" class="h-4 w-auto object-contain filter invert opacity-80" />
+                        <span>Tracks 01 &amp; 02 · Payments &amp; AI</span>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Shawn Chee (Thetanuts) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.2s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-accent-glow-cyan to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-secondary/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/shawn.jpg" alt="Shawn Chee" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-secondary-container text-white p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">terminal</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3">
+                        Thetanuts Mentor &amp; Judge
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors">SHAWN CHEE</h3>
+                    <p class="font-label-mono text-xs text-secondary mt-1 font-bold tracking-wide uppercase">FULL STACK DEVELOPER</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Thetanuts Finance · Base</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>SDK Product &amp; AI Options</span>
+                    </div>
+                </div>
+
+                <!-- Benjamin (Thetanuts) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.3s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-accent-glow-cyan to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-secondary/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/benjamin.png" alt="Benjamin" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-secondary-container text-white p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">trending_up</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3">
+                        Thetanuts Mentor &amp; Judge
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors">BENJAMIN</h3>
+                    <p class="font-label-mono text-xs text-secondary mt-1 font-bold tracking-wide uppercase">GROWTH LEAD</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Thetanuts Finance · Base</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>Ecosystem &amp; Product Strategy</span>
+                    </div>
+                </div>
+
+                <!-- Jack (GonkaRouter) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.4s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/jack.jpg" alt="Jack" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-tertiary text-surface p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">smart_toy</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
+                        Gonka Mentor &amp; Judge
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">JACK</h3>
+                    <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">TECH LEAD</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>AI for Society &amp; Model Routing</span>
+                    </div>
+                </div>
+
+                <!-- Ryan (GonkaRouter) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.5s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/ryan.png" alt="Ryan" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-tertiary text-surface p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">inventory_2</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
+                        Gonka Mentor &amp; Judge
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">RYAN</h3>
+                    <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">PRODUCT MANAGER</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>Product UX &amp; Practical Value</span>
+                    </div>
+                </div>
+
+                <!-- Carol (GonkaRouter) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.6s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/carol.png" alt="Carol" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-tertiary text-surface p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">handshake</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
+                        Sponsor Representative
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">CAROL</h3>
+                    <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">REPRESENTATIVE PERSON</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>Ecosystem Partnerships</span>
+                    </div>
+                </div>
+
+                <!-- Wayne (StarGlobal) -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-accent-glow-cyan/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0 md:col-span-2 lg:col-span-1 lg:col-start-2" style="animation-duration: 2s; animation-delay: 0.7s;">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-glow-cyan via-white to-transparent opacity-80"></div>
+                    <div class="relative mb-5">
+                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-accent-glow-cyan/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-accent-glow-cyan group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
+                            <img src="../assets/judges/wayne.png" alt="Wayne" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-accent-glow-cyan text-surface-lowest p-1.5 rounded-full border border-surface shadow-md">
+                            <span class="material-symbols-outlined text-[16px] block">badge</span>
+                        </span>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-accent-glow-cyan/10 text-accent-glow-cyan border border-accent-glow-cyan/30 mb-3">
+                        Supporting Sponsor Representative
+                    </span>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-accent-glow-cyan transition-colors">WAYNE</h3>
+                    <p class="font-label-mono text-xs text-accent-glow-cyan mt-1 font-bold tracking-wide uppercase">REPRESENTATIVE PERSON</p>
+                    <p class="font-body-md text-sm text-text-secondary mt-1">StarGlobal Recruitment Agency</p>
+                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
+                        <img src="../assets/logos/starglobal-logo.png" alt="StarGlobal" class="h-3.5 w-auto object-contain opacity-80" />
+                        <span>Talent &amp; Web3 Careers</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
