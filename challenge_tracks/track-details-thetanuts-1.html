@@ -78,33 +78,110 @@
         <div class="glass-card rounded-2xl p-8 md:p-12 border border-secondary/20 min-h-[400px] flex flex-col gap-8">
             <div class="text-center">
                 <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts Logo" style="height: 50px; max-width: 200px; object-fit: contain; filter: drop-shadow(0 0 15px rgba(76,215,246,0.15));" class="mx-auto mb-6" />
-                <h1 class="font-headline-lg text-3xl md:text-5xl font-bold mb-4 text-secondary tracking-tight">Best Product Built on the SDK</h1>
-                <p class="font-body-lg text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">Build any working product on top of the Thetanuts SDK — a decentralized options protocol on Base. Structured products, vaults, consumer trading apps, options-powered lending, analytics tools, or something we haven’t thought of.</p>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/10 border border-secondary/30 text-secondary font-label-mono text-xs uppercase tracking-wider mb-3">
+                    <span>🥜 Thetanuts Finance Builder Sprint</span>
+                </div>
+                <h1 class="font-headline-lg text-3xl md:text-5xl font-bold mb-4 text-secondary tracking-tight">Track 1: Best Product Built on the SDK</h1>
+                <p class="font-body-lg text-lg text-text-secondary max-w-3xl mx-auto">
+                    Thetanuts Finance is an on-chain options protocol built on Base, serving as the foundational infrastructure layer for decentralized options trading. It enables traders to buy and sell options while giving developers the core infrastructure to build innovative trading applications as part of the Thetaverse ecosystem.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
-                    <h3 class="font-label-caps text-lg text-secondary mb-4 border-b border-white/10 pb-2">What We're Looking For</h3>
-                    <p class="text-on-surface-variant font-body-md">
-                        Open-ended: bring us a real, working product that uses on-chain options in a meaningful way.
-                    </p>
+            <!-- Track Scope & Expectations Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-label-caps text-lg text-secondary mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">lightbulb</span>
+                            What to Build
+                        </h3>
+                        <p class="text-on-surface-variant font-body-md text-sm leading-relaxed mb-4">
+                            Build any working product on top of the Thetanuts SDK — a decentralized options protocol on Base:
+                        </p>
+                        <ul class="list-disc list-inside text-text-secondary font-body-md text-xs sm:text-sm space-y-2">
+                            <li>Structured products &amp; automated vault strategies</li>
+                            <li>Consumer-facing options trading applications</li>
+                            <li>Options-powered lending &amp; collateral mechanisms</li>
+                            <li>Options market analytics &amp; risk dashboard tools</li>
+                            <li>Innovative options primitives we haven't thought of</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 text-xs font-label-mono text-secondary">
+                        🎯 <strong>Open-ended:</strong> Bring us a real, working product that uses on-chain options in a meaningful way.
+                    </div>
                 </div>
                 
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
-                    <h3 class="font-label-caps text-lg text-secondary mb-4 border-b border-white/10 pb-2">Resources</h3>
-                    <ul class="list-disc list-inside text-on-surface-variant font-body-md space-y-2">
-                        <li><strong>TypeScript SDK:</strong> npm package <code>@thetanuts-finance/thetanuts-client</code></li>
-                        <li><strong>GitHub:</strong> <a href="https://github.com/Thetanuts-Finance/thetanuts-sdk" target="_blank" class="text-secondary hover:underline">github.com/Thetanuts-Finance/thetanuts-sdk</a></li>
-                        <li><strong>Docs:</strong> <a href="https://docs.thetanuts.finance/sdk" target="_blank" class="text-secondary hover:underline">docs.thetanuts.finance/sdk</a></li>
-                    </ul>
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-label-caps text-lg text-secondary mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">code</span>
+                            Developer Resources
+                        </h3>
+                        <p class="text-on-surface-variant font-body-md text-xs sm:text-sm mb-4">
+                            Main SDK for interacting with Thetanuts Finance programmatically — fetch orders, get pricing, fill trades, manage RFQs, and subscribe to live updates.
+                        </p>
+                        <div class="space-y-2.5 font-label-mono text-xs">
+                            <div class="bg-surface-container-lowest/80 p-2.5 rounded border border-white/5">
+                                <span class="text-text-secondary block text-[10px] uppercase">Install Command</span>
+                                <code class="text-secondary select-all font-bold">npm install @thetanuts-finance/thetanuts-client</code>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-white/5">
+                                <span class="text-text-secondary">GitHub Repo</span>
+                                <a href="https://github.com/Thetanuts-Finance/thetanuts-sdk" target="_blank" class="text-secondary hover:underline flex items-center gap-1">thetanuts-sdk <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-white/5">
+                                <span class="text-text-secondary">Full Docs &amp; LLM Texts</span>
+                                <a href="https://docs.thetanuts.finance/sdk" target="_blank" class="text-secondary hover:underline flex items-center gap-1">docs.thetanuts.finance/sdk <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+                            </div>
+                            <div class="flex justify-between items-center py-1">
+                                <span class="text-text-secondary">npm Package</span>
+                                <a href="https://www.npmjs.com/package/@thetanuts-finance/thetanuts-client" target="_blank" class="text-secondary hover:underline flex items-center gap-1">npmjs.com <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-4 bg-secondary/10 rounded-xl p-8 border border-secondary/20 text-center">
-                <h3 class="font-label-caps text-xl text-secondary mb-6 tracking-widest uppercase">Prize Pool</h3>
+            <!-- Sponsor Support & Direct Contacts -->
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h3 class="font-label-caps text-base text-secondary mb-3 border-b border-white/10 pb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">support_agent</span>
+                    Questions or Stuck? We're Here to Help!
+                </h3>
+                <p class="text-xs sm:text-sm text-text-secondary mb-4">
+                    Thetanuts team members read every submission and actively support builders during the hackathon. Reach out anytime:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-label-mono text-xs">
+                    <div class="bg-surface-container-lowest/60 p-3 rounded-lg border border-white/5">
+                        <span class="text-secondary block font-bold mb-1">Telegram Mentors</span>
+                        <div class="text-text-secondary space-y-1">
+                            <div>@ShawnSeanC</div>
+                            <div>@NeB399</div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest/60 p-3 rounded-lg border border-white/5">
+                        <span class="text-secondary block font-bold mb-1">Collab / Tech Support</span>
+                        <div class="text-text-secondary space-y-1">
+                            <div>shawn@thetanuts.finance</div>
+                            <div>benjamin@thetanuts.finance</div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest/60 p-3 rounded-lg border border-white/5">
+                        <span class="text-secondary block font-bold mb-1">Official Links</span>
+                        <div class="text-text-secondary space-y-1">
+                            <a href="https://thetanuts.finance" target="_blank" class="hover:text-secondary block">thetanuts.finance</a>
+                            <a href="https://x.com/ThetanutsFi" target="_blank" class="hover:text-secondary block">x.com/ThetanutsFi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prize Pool Card -->
+            <div class="mt-2 bg-secondary/10 rounded-xl p-8 border border-secondary/20 text-center">
+                <h3 class="font-label-caps text-xl text-secondary mb-6 tracking-widest uppercase">Track Prize Pool</h3>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 font-body-md text-lg">
-                    <div class="flex flex-col items-center gap-2"><span class="text-2xl">🥇 1st</span><span class="text-2xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary-fixed-dim">600 USD</span></div>
-                    <div class="flex flex-col items-center gap-2"><span class="text-2xl opacity-80">🥈 2nd</span><span class="text-xl font-mono font-bold text-text-secondary">400 USD</span></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-2xl">🥇 1st Place</span><span class="text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary-fixed-dim">600 USDC</span></div>
+                    <div class="flex flex-col items-center gap-2"><span class="text-2xl opacity-80">🥈 2nd Place</span><span class="text-2xl font-mono font-bold text-text-secondary">400 USDC</span></div>
                 </div>
             </div>
         </div>

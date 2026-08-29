@@ -78,51 +78,163 @@
         <div class="glass-card rounded-2xl p-8 md:p-12 border border-tertiary/20 min-h-[400px] flex flex-col gap-8">
             <div class="text-center">
                 <img src="../assets/logos/gonka-logo.webp" alt="Gonka Logo" style="height: 50px; max-width: 200px; object-fit: contain; filter: drop-shadow(0 0 15px rgba(255,185,95,0.15));" class="mx-auto mb-6" />
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-mono text-xs uppercase tracking-wider mb-3">
+                    <span>⚡ Gonka Network Challenge</span>
+                </div>
                 <h1 class="font-headline-lg text-3xl md:text-5xl font-bold mb-4 text-tertiary tracking-tight">AI for Society</h1>
-                <p class="font-body-lg text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">Focuses on real-world applications of AI in the public domain. Use the Gonka Network to build tools with genuine value for everyday users.</p>
+                <p class="font-body-lg text-lg text-text-secondary max-w-3xl mx-auto">
+                    This challenge focuses on real-world applications of AI in the public domain. Participants are encouraged to use the Gonka Network via <strong>gonkarouter.io</strong> to build tools with genuine value for everyday users.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
-                <div class="flex flex-col gap-8">
-                    <div class="bg-white/5 rounded-xl p-6 border border-white/10">
-                        <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2">Example Directions</h3>
-                        <ul class="list-disc list-inside text-on-surface-variant font-body-md space-y-3">
-                            <li><strong>AI Fact Checker:</strong> Cross-verify news and social media content using multiple models, producing an on-chain Truth Score.</li>
-                            <li><strong>Multilingual AI Public Assistant:</strong> A censorship-free AI access layer for education, medical consultation, and legal literacy.</li>
-                            <li><strong>AI Accessibility Tools:</strong> AI-powered assistants for users with visual, hearing, or cognitive impairments.</li>
-                            <li><strong>Open Knowledge Engine:</strong> A decentralized Q&A or knowledge retrieval system built on Gonka inference.</li>
+            <!-- Challenge Directions / Inspirations -->
+            <div class="bg-white/5 rounded-xl p-6 md:p-8 border border-white/10">
+                <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">explore</span>
+                    1. Challenge Directions &amp; Inspiration
+                </h3>
+                <p class="text-xs sm:text-sm text-text-secondary mb-4">
+                    The challenge is open-ended — the following directions are provided as inspiration, not constraints:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-surface-container-lowest/80 p-4 rounded-lg border border-tertiary/20">
+                        <div class="flex items-center gap-2 text-tertiary font-bold text-sm mb-1.5">
+                            <span class="material-symbols-outlined text-base">verified_user</span>
+                            AI Fact Checker (Preferred)
+                        </div>
+                        <p class="text-xs text-text-secondary leading-relaxed">
+                            A decentralized <strong>"Truth Engine"</strong> using multi-model AI inference to cross-verify news, social media claims, or digital media in real-time, outputting an on-chain Truth Score (0–100%) and traceable reasoning trail.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-lowest/80 p-4 rounded-lg border border-white/5">
+                        <div class="flex items-center gap-2 text-primary font-bold text-sm mb-1.5">
+                            <span class="material-symbols-outlined text-base">translate</span>
+                            Multilingual Public Assistant
+                        </div>
+                        <p class="text-xs text-text-secondary leading-relaxed">
+                            A censorship-free AI access layer covering education, medical consultation, and legal literacy for non-English-speaking communities worldwide.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-lowest/80 p-4 rounded-lg border border-white/5">
+                        <div class="flex items-center gap-2 text-secondary font-bold text-sm mb-1.5">
+                            <span class="material-symbols-outlined text-base">accessibility_new</span>
+                            AI Accessibility Tools
+                        </div>
+                        <p class="text-xs text-text-secondary leading-relaxed">
+                            AI-powered assistive tools designed for users with visual, hearing, or cognitive impairments.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-lowest/80 p-4 rounded-lg border border-white/5">
+                        <div class="flex items-center gap-2 text-on-surface font-bold text-sm mb-1.5">
+                            <span class="material-symbols-outlined text-base">menu_book</span>
+                            Open Knowledge Engine
+                        </div>
+                        <p class="text-xs text-text-secondary leading-relaxed">
+                            A decentralized Q&amp;A or knowledge retrieval system built on Gonka decentralized inference.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Requirements & Core Functionality Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">settings_input_component</span>
+                            2. Technical Requirements
+                        </h3>
+                        <ul class="text-text-secondary font-body-md text-xs sm:text-sm space-y-3">
+                            <li class="flex items-start gap-2">
+                                <span class="text-tertiary font-bold">⚡ Mandatory:</span>
+                                <span>All AI reasoning &amp; verification logic MUST run on Gonka Network via <a href="https://gonkarouter.io" target="_blank" class="text-tertiary hover:underline font-mono">gonkarouter.io</a>.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-secondary font-bold">🔄 Multi-Model Consensus:</span>
+                                <span>Encouraged to use at least two models (e.g. MiniMax &amp; Kimi) to cross-verify claims and ensure neutrality.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary font-bold">🎁 Free Access:</span>
+                                <span>All participants receive unlimited free token credits during the hackathon for development.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="flex flex-col gap-8">
-                    <div class="bg-white/5 rounded-xl p-6 border border-white/10">
-                        <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2">Technical Requirements</h3>
-                        <ul class="list-disc list-inside text-on-surface-variant font-body-md space-y-2">
-                            <li><strong>Mandatory:</strong> Gonka Router Integration (Required) via gonkarouter.io</li>
-                            <li><strong>Multi-Model Consensus:</strong> Encouraged to use at least two different models (e.g. MiniMax, Kimi)</li>
-                            <li><strong>Core Functionality:</strong> Claim Extraction, Decentralized Verification, Truth Score & Reasoning, Transparency UI</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white/5 rounded-xl p-6 border border-white/10">
-                        <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2">Submission Criteria</h3>
-                        <ul class="list-disc list-inside text-on-surface-variant font-body-md space-y-2">
-                            <li>Live Demo URL</li>
-                            <li>GitHub Repository</li>
-                            <li>Video Pitch (2 minutes)</li>
-                        </ul>
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-label-caps text-lg text-tertiary mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">checklist</span>
+                            Core Functionality
+                        </h3>
+                        <div class="space-y-2 text-xs font-label-mono text-text-secondary">
+                            <div class="bg-surface-container-lowest/70 p-2 rounded border border-white/5">
+                                <strong class="text-on-surface">Claim Extraction:</strong> Input URL, tweet, or text snippet.
+                            </div>
+                            <div class="bg-surface-container-lowest/70 p-2 rounded border border-white/5">
+                                <strong class="text-on-surface">Decentralized Verification:</strong> Analyze via Gonka models vs live data.
+                            </div>
+                            <div class="bg-surface-container-lowest/70 p-2 rounded border border-white/5">
+                                <strong class="text-on-surface">Truth Score &amp; Reasoning:</strong> Output 0–100% score + reasoning trace.
+                            </div>
+                            <div class="bg-surface-container-lowest/70 p-2 rounded border border-white/5">
+                                <strong class="text-on-surface">Transparency UI:</strong> Display Gonka Request IDs for each inference.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-4 bg-tertiary/10 rounded-xl p-8 border border-tertiary/20 text-center">
-                <h3 class="font-label-caps text-xl text-tertiary mb-6 tracking-widest uppercase">Prize Pool</h3>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 font-body-md text-lg">
-                    <div class="flex flex-col items-center gap-2"><span class="text-2xl">🥇 1st</span><span class="text-2xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-tertiary-fixed-dim">1,200 USDT</span></div>
-                    <div class="flex flex-col items-center gap-2"><span class="text-2xl opacity-80">🥈 2nd</span><span class="text-xl font-mono font-bold text-text-secondary">800 USDT</span></div>
-                    <div class="flex flex-col items-center gap-2"><span class="text-2xl opacity-60">🎖️ Top 10</span><span class="text-xl font-mono font-bold text-on-surface-variant text-tertiary">20M Free Tokens / month</span></div>
+            <!-- Developer Tips & Submission Criteria Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                    <h3 class="font-label-caps text-base text-tertiary mb-3 border-b border-white/10 pb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">tips_and_updates</span>
+                        3. Developer Best Practices
+                    </h3>
+                    <ul class="text-xs text-text-secondary space-y-2.5 leading-relaxed">
+                        <li><strong>The "Neutrality" Prompt:</strong> Instruct models to be objective and cite specific evidence for conclusions.</li>
+                        <li><strong>Cross-Model Comparison:</strong> If two models disagree, building a robust "Consensus Logic" is a major plus!</li>
+                        <li><strong>On-Chain Proof:</strong> Always display the Gonka Request ID to prove results weren't generated by a centralized server.</li>
+                    </ul>
                 </div>
+
+                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                    <h3 class="font-label-caps text-base text-tertiary mb-3 border-b border-white/10 pb-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">fact_check</span>
+                        5. Submission Criteria
+                    </h3>
+                    <ul class="text-xs text-text-secondary space-y-2 font-label-mono">
+                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-sm">link</span> <strong>Live Demo URL:</strong> Working web app for live verification</li>
+                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-sm">code</span> <strong>GitHub Repo:</strong> Clean code with Gonka Router documentation</li>
+                        <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-tertiary text-sm">videocam</span> <strong>Video Pitch:</strong> 2-minute video showing live verification in action</li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-white/10 text-center text-xs font-label-mono text-tertiary">
+                        <em>"Verify the World on Gonka.ai"</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prize Pool & Post-Event Support -->
+            <div class="mt-2 bg-tertiary/10 rounded-xl p-8 border border-tertiary/20 text-center">
+                <h3 class="font-label-caps text-xl text-tertiary mb-6 tracking-widest uppercase">Prizes &amp; Ecosystem Incentives</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-body-md text-lg mb-6">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="text-2xl">🥇 1st Place</span>
+                        <span class="text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-tertiary-fixed-dim">1,200 USDT</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="text-2xl opacity-80">🥈 2nd Place</span>
+                        <span class="text-2xl font-mono font-bold text-text-secondary">800 USDT</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="text-2xl opacity-80">🎖️ Top 10 Winners</span>
+                        <span class="text-base font-mono font-bold text-tertiary">20M Tokens / Mo (3–6 Mos)</span>
+                    </div>
+                </div>
+                <p class="text-xs text-text-secondary max-w-xl mx-auto border-t border-white/10 pt-4">
+                    🚀 <strong>Ecosystem Support:</strong> High-potential projects have the opportunity to be officially integrated into the Gonka ecosystem as a public utility tool.
+                </p>
             </div>
         </div>
     </main>
