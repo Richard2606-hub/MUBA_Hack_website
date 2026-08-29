@@ -24,6 +24,35 @@
         .animate-slide-up, .animate-fade-in-up { visibility: visible; }
         /* Reinforce noise overlay non-interactivity at elevated z-index */
         .noise-bg { pointer-events: none; }
+        
+        /* Custom responsive centering grid for 5 mentor/judge cards */
+        .mentors-flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+        }
+        .mentor-card-item {
+            width: 100%;
+            max-width: 320px;
+            flex: 0 1 320px;
+        }
+        @media (min-width: 768px) {
+            .mentors-flex-grid {
+                gap: 1.75rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .mentors-flex-grid {
+                gap: 2rem;
+                max-width: 1100px;
+            }
+            .mentor-card-item {
+                max-width: 330px;
+                flex: 0 1 330px;
+            }
+        }
     </style>
 </head>
 
@@ -48,51 +77,67 @@
                     href="../judges_n_mentors/code.html">Judges & Mentors</a>
                 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
                     href="../getting_here/code.html">Venue</a>
-                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 transition-all duration-300 px-3 py-2 rounded-md hover:scale-95"
-                    href="../frequently_asked_questions/code.html">FAQ</a>
             </div>
-            <button
-                class="hidden md:block bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300">
-                Register with Devfolio
-            </button>
-            <!-- Mobile Menu Icon (simplified) -->
-            <button id="mobile-menu-btn" class="md:hidden text-text-primary p-2">
-                <span class="material-symbols-outlined">menu</span>
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center gap-3">
+                <a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors px-3 py-2"
+                    href="../frequently_asked_questions/code.html">FAQ</a>
+                <a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors px-3 py-2"
+                    href="../prize_pool/code.html">Prizes</a>
+                <a class="relative inline-flex items-center justify-center p-0.5 overflow-hidden rounded-full font-label-caps text-label-caps font-bold group bg-gradient-to-r from-primary to-secondary text-white shadow-[0_0_20px_rgba(167,139,250,0.5)] hover:shadow-[0_0_30px_rgba(167,139,250,0.8)] hover:scale-105 transition-all duration-300 active:scale-95"
+                    href="https://mubablockchainhackathon2026.devfolio.co/" target="_blank">
+                    <span
+                        class="relative px-5 py-2 transition-all ease-in duration-200 bg-background rounded-full group-hover:bg-opacity-0">
+                        REGISTER NOW
+                    </span>
+                </a>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false"
+                class="md:hidden flex items-center justify-center p-2 rounded-lg text-text-primary hover:text-primary hover:bg-white/5 transition-colors focus:outline-none">
+                <span class="material-symbols-outlined text-2xl">menu</span>
             </button>
         </div>
-        <!-- Mobile Menu Dropdown -->
+        <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu"
-            class="hidden w-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-white/10 flex flex-col items-center py-6 gap-4 shadow-xl">
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            class="hidden md:hidden flex-col gap-2 px-container-padding py-4 bg-surface-container-lowest/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl">
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../official_landing_page/code.html">Home</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../challenge_tracks/code.html">Tracks</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../event_timeline/code.html">Timeline</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../sponsors/code.html">Sponsors &amp; Partners</a>
-            <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 px-3 py-2 hover:bg-white/5 transition-all duration-300"
+            <a class="font-label-caps text-label-caps text-secondary font-bold py-2 px-3 rounded-md bg-white/5"
                 href="../judges_n_mentors/code.html">Judges & Mentors</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../getting_here/code.html">Venue</a>
-            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-3 py-2 rounded-md"
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
                 href="../frequently_asked_questions/code.html">FAQ</a>
-            <button
-                class="mt-2 bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-caps text-label-caps px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] active:scale-95 transition-transform duration-300 w-3/4 max-w-[280px]">Register with Devfolio</button>
+            <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-2 px-3 rounded-md hover:bg-white/5"
+                href="../prize_pool/code.html">Prizes</a>
+            <a class="inline-flex items-center justify-center p-0.5 mt-2 rounded-full font-label-caps text-label-caps font-bold bg-gradient-to-r from-primary to-secondary text-white text-center shadow-[0_0_15px_rgba(167,139,250,0.4)]"
+                href="https://mubablockchainhackathon2026.devfolio.co/" target="_blank">
+                <span class="w-full py-2.5 px-4 rounded-full bg-background/50 hover:bg-transparent transition-colors">
+                    REGISTER NOW
+                </span>
+            </a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow w-full relative pt-32 pb-section-gap px-container-padding dot-grid overflow-hidden">
-        <div class="void-orb bg-accent-glow-violet w-[600px] h-[600px] -top-40 -left-64 animate-float-1"></div>
-        <div
-            class="void-orb bg-accent-glow-cyan w-[500px] h-[500px] top-1/2 -translate-y-1/2 -right-[100px] animate-float-2">
+    <main class="flex-grow w-full max-w-7xl mx-auto pt-32 pb-section-gap px-container-padding z-10 flex flex-col gap-12">
+
+        <!-- Background Glow Elements -->
+        <div class="void-orb bg-primary w-[500px] h-[500px] top-[-10%] left-[-10%] animate-float-1 opacity-20"></div>
+        <div class="void-orb bg-secondary w-[600px] h-[600px] top-[40%] right-[-15%] animate-float-2 opacity-15">
         </div>
         <div
             class="void-orb bg-primary-container w-[700px] h-[700px] bottom-[-20%] left-[20%] animate-float-3 opacity-10">
         </div>
 
-        <section id="mentors" class="py-12 md:py-20 space-y-12 max-w-6xl mx-auto z-10 relative reveal">
+        <section id="mentors" class="py-12 md:py-20 space-y-12 max-w-6xl mx-auto z-10 relative reveal w-full">
             <header class="text-center flex flex-col items-center gap-stack-md mb-6 md:mb-10">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-mono text-xs uppercase tracking-widest opacity-0 animate-slide-up" style="animation-delay: 0.05s;">
                     <span class="material-symbols-outlined text-sm">verified_user</span>
@@ -106,11 +151,11 @@
                 </p>
             </header>
 
-            <!-- Judges & Mentors Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Judges & Mentors Grid (5 Members, beautifully centered: 3 on top, 2 centered below) -->
+            <div class="mentors-flex-grid mx-auto">
 
                 <!-- Raphael (Sui) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.1s;">
+                <div class="mentor-card-item glass-card rounded-2xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-primary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.1s;">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent-glow-cyan to-transparent opacity-80"></div>
                     <div class="relative mb-5">
                         <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary/40 shadow-[0_0_20px_rgba(167,139,250,0.3)] group-hover:border-primary group-hover:shadow-[0_0_25px_rgba(167,139,250,0.6)] transition-all duration-300">
@@ -120,20 +165,22 @@
                             <span class="material-symbols-outlined text-[16px] block">code</span>
                         </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-primary/10 text-primary border border-primary/30 mb-3">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-primary/10 text-primary border border-primary/30 mb-3 inline-block">
                         Sui Track Mentor &amp; Judge
                     </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-primary transition-colors">RAPHAEL</h3>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-primary transition-colors tracking-tight">RAPHAEL</h3>
                     <p class="font-label-mono text-xs text-accent-glow-cyan mt-1 font-bold tracking-wide uppercase">SOLUTION ENGINEER</p>
                     <p class="font-body-md text-sm text-text-secondary mt-1">Mysten Labs · Sui Ecosystem</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/sui-logo.png" alt="Sui" class="h-4 w-auto object-contain filter invert opacity-80" />
-                        <span>Tracks 01 &amp; 02 · Payments &amp; AI</span>
+                    <div class="w-full mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-label-mono">
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <img src="../assets/logos/sui-logo.png" alt="Sui" style="height: 18px; width: auto; max-width: 60px; object-fit: contain; filter: brightness(0) invert(1);" class="opacity-80 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                        <span class="text-[11px] text-right font-mono text-text-secondary truncate">Tracks 01 &amp; 02 · Payments &amp; AI</span>
                     </div>
                 </div>
 
                 <!-- Shawn Chee (Thetanuts) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.2s;">
+                <div class="mentor-card-item glass-card rounded-2xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.2s;">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-accent-glow-cyan to-transparent opacity-80"></div>
                     <div class="relative mb-5">
                         <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-secondary/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
@@ -143,20 +190,22 @@
                             <span class="material-symbols-outlined text-[16px] block">terminal</span>
                         </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3 inline-block">
                         Thetanuts Mentor &amp; Judge
                     </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors">SHAWN CHEE</h3>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors tracking-tight">SHAWN CHEE</h3>
                     <p class="font-label-mono text-xs text-secondary mt-1 font-bold tracking-wide uppercase">FULL STACK DEVELOPER</p>
                     <p class="font-body-md text-sm text-text-secondary mt-1">Thetanuts Finance · Base</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>SDK Product &amp; AI Options</span>
+                    <div class="w-full mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-label-mono">
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" style="height: 16px; width: auto; max-width: 85px; object-fit: contain;" class="opacity-80 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                        <span class="text-[11px] text-right font-mono text-text-secondary truncate">SDK Product &amp; AI Options</span>
                     </div>
                 </div>
 
                 <!-- Benjamin (Thetanuts) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.3s;">
+                <div class="mentor-card-item glass-card rounded-2xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-secondary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.3s;">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-accent-glow-cyan to-transparent opacity-80"></div>
                     <div class="relative mb-5">
                         <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-secondary/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-secondary group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
@@ -166,20 +215,22 @@
                             <span class="material-symbols-outlined text-[16px] block">trending_up</span>
                         </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/30 mb-3 inline-block">
                         Thetanuts Mentor &amp; Judge
                     </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors">BENJAMIN</h3>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-secondary transition-colors tracking-tight">BENJAMIN</h3>
                     <p class="font-label-mono text-xs text-secondary mt-1 font-bold tracking-wide uppercase">GROWTH LEAD</p>
                     <p class="font-body-md text-sm text-text-secondary mt-1">Thetanuts Finance · Base</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>Ecosystem &amp; Product Strategy</span>
+                    <div class="w-full mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-label-mono">
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <img src="../assets/logos/Thetanuts Finance - Horizontal Logo - White - PNG.png" alt="Thetanuts" style="height: 16px; width: auto; max-width: 85px; object-fit: contain;" class="opacity-80 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                        <span class="text-[11px] text-right font-mono text-text-secondary truncate">Ecosystem &amp; Strategy</span>
                     </div>
                 </div>
 
                 <!-- Jack (GonkaRouter) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.4s;">
+                <div class="mentor-card-item glass-card rounded-2xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.4s;">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
                     <div class="relative mb-5">
                         <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
@@ -189,20 +240,22 @@
                             <span class="material-symbols-outlined text-[16px] block">smart_toy</span>
                         </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3 inline-block">
                         Gonka Mentor &amp; Judge
                     </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">JACK</h3>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors tracking-tight">JACK</h3>
                     <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">TECH LEAD</p>
                     <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>AI for Society &amp; Model Routing</span>
+                    <div class="w-full mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-label-mono">
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <img src="../assets/logos/gonka-logo.webp" alt="Gonka" style="height: 18px; width: auto; max-width: 80px; object-fit: contain;" class="opacity-80 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                        <span class="text-[11px] text-right font-mono text-text-secondary truncate">AI for Society &amp; Routing</span>
                     </div>
                 </div>
 
                 <!-- Ryan (GonkaRouter) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.5s;">
+                <div class="mentor-card-item glass-card rounded-2xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.5s;">
                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
                     <div class="relative mb-5">
                         <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
@@ -212,61 +265,17 @@
                             <span class="material-symbols-outlined text-[16px] block">inventory_2</span>
                         </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
+                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3 inline-block">
                         Gonka Mentor &amp; Judge
                     </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">RYAN</h3>
+                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors tracking-tight">RYAN</h3>
                     <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">PRODUCT MANAGER</p>
                     <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>Product UX &amp; Practical Value</span>
-                    </div>
-                </div>
-
-                <!-- Carol (GonkaRouter) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-tertiary/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0" style="animation-duration: 2s; animation-delay: 0.6s;">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary via-accent-glow-amber to-transparent opacity-80"></div>
-                    <div class="relative mb-5">
-                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-tertiary/40 shadow-[0_0_20px_rgba(255,185,95,0.3)] group-hover:border-tertiary group-hover:shadow-[0_0_25px_rgba(255,185,95,0.6)] transition-all duration-300">
-                            <img src="../assets/judges/carol.png" alt="Carol" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                    <div class="w-full mt-auto pt-5 border-t border-white/10 flex items-center justify-between gap-2 text-xs font-label-mono">
+                        <div class="flex items-center gap-1.5 shrink-0">
+                            <img src="../assets/logos/gonka-logo.webp" alt="Gonka" style="height: 18px; width: auto; max-width: 80px; object-fit: contain;" class="opacity-80 group-hover:opacity-100 transition-opacity" />
                         </div>
-                        <span class="absolute bottom-0 right-0 bg-tertiary text-surface p-1.5 rounded-full border border-surface shadow-md">
-                            <span class="material-symbols-outlined text-[16px] block">handshake</span>
-                        </span>
-                    </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-tertiary/10 text-tertiary border border-tertiary/30 mb-3">
-                        Sponsor Representative
-                    </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-tertiary transition-colors">CAROL</h3>
-                    <p class="font-label-mono text-xs text-tertiary mt-1 font-bold tracking-wide uppercase">REPRESENTATIVE PERSON</p>
-                    <p class="font-body-md text-sm text-text-secondary mt-1">Gonka Router · Gonka Network</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/gonka-logo.webp" alt="Gonka" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>Ecosystem Partnerships</span>
-                    </div>
-                </div>
-
-                <!-- Wayne (StarGlobal) -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden group hover:border-accent-glow-cyan/50 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.2)] scroll-animate opacity-0 md:col-span-2 lg:col-span-1 lg:col-start-2" style="animation-duration: 2s; animation-delay: 0.7s;">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-glow-cyan via-white to-transparent opacity-80"></div>
-                    <div class="relative mb-5">
-                        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-accent-glow-cyan/40 shadow-[0_0_20px_rgba(76,215,246,0.3)] group-hover:border-accent-glow-cyan group-hover:shadow-[0_0_25px_rgba(76,215,246,0.6)] transition-all duration-300">
-                            <img src="../assets/judges/wayne.png" alt="Wayne" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
-                        </div>
-                        <span class="absolute bottom-0 right-0 bg-accent-glow-cyan text-surface-lowest p-1.5 rounded-full border border-surface shadow-md">
-                            <span class="material-symbols-outlined text-[16px] block">badge</span>
-                        </span>
-                    </div>
-                    <span class="px-3 py-1 rounded-full text-[11px] font-label-mono uppercase tracking-wider bg-accent-glow-cyan/10 text-accent-glow-cyan border border-accent-glow-cyan/30 mb-3">
-                        Supporting Sponsor Representative
-                    </span>
-                    <h3 class="font-headline-md text-xl md:text-2xl text-text-primary group-hover:text-accent-glow-cyan transition-colors">WAYNE</h3>
-                    <p class="font-label-mono text-xs text-accent-glow-cyan mt-1 font-bold tracking-wide uppercase">REPRESENTATIVE PERSON</p>
-                    <p class="font-body-md text-sm text-text-secondary mt-1">StarGlobal Recruitment Agency</p>
-                    <div class="w-full mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-label-mono text-on-surface-variant">
-                        <img src="../assets/logos/starglobal-logo.png" alt="StarGlobal" class="h-3.5 w-auto object-contain opacity-80" />
-                        <span>Talent &amp; Web3 Careers</span>
+                        <span class="text-[11px] text-right font-mono text-text-secondary truncate">Product UX &amp; Value</span>
                     </div>
                 </div>
 
